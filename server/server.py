@@ -1,14 +1,31 @@
 # server.py
+import flask
 from flask import Flask, render_template, request
 import json
 from src.utils import *
 from src.topic_clustering import *
 from src.plot_utils import *
+from flask_cors import CORS
+import os
 
 
 
 
-app = Flask(__name__, static_folder='../static/src' ,template_folder='../static/public')
+app = Flask(__name__, static_folder='../static/public' ,template_folder='../static/public')
+CORS(app)
+
+@app.route('/', defaults={'path': ''})
+
+
+@app.route('/<path:path>')
+def serve(path):
+    print (path)
+    if path != "" and os.path.exists("public" + path):
+        return flask.send_from_directory('public/', path)
+    else:
+        return flask.send_from_directory('../static/public', 'index.html')
+
+
 
 @app.route("/home", methods=['GET', 'POST'])
 def choose_hashtag():
@@ -29,7 +46,7 @@ def choose_hashtag():
 
 @app.route("/hello")
 def hello():
-    return render_template('index.html')
+    return flask.send_from_directory('../static/public', 'index.html')#render_template('index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
