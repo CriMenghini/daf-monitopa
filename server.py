@@ -9,8 +9,6 @@ from flask_cors import CORS
 import os
 
 
-
-
 app = Flask(__name__, static_folder='web-ui/build', template_folder='web-ui/build')
 CORS(app)
 
@@ -38,15 +36,22 @@ def choose_hashtag():
     hashtags_dict, dict_hashtag, dict_list_hashtag = tweet_hashtags(hashtags_dict, list_hashtags)
 
     if request.method == 'POST':
+        print (request.form)
         hashtag = request.form['hashtag']
         retweet_based_on_hashtag(hashtag, dict_hashtag, data)
         return render_template('chosen_hashtag.html', hashtag=hashtag)
 	    
     return render_template('prova.html')
 
-@app.route("/hello")
+@app.route("/hello", methods=['GET', 'POST'])
 def hello():
-    return render_template('index.html')#flask.send_from_directory('build', 'index.html')#
+    if request.method == 'POST':
+        print (request.form['hashtag'])
+        hashtag = request.form['hashtag']
+        # Mettere l'eccezione quando un utente sbaglia lo spelling
+        return render_template('chosen_hashtag.html', hashtag=hashtag)
+    else:
+        return render_template('index.html')#flask.send_from_directory('build', 'index.html')#
 
 if __name__ == "__main__":
     app.run(debug=True)
