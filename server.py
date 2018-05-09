@@ -11,19 +11,19 @@ import os
 
 
 
-app = Flask(__name__, static_folder='../static/public' ,template_folder='../static/public')
+app = Flask(__name__, static_folder='web-ui/build', template_folder='web-ui/build')
 CORS(app)
 
-@app.route('/', defaults={'path': ''})
+#@app.route('/', defaults={'path': ''})
 
 
-@app.route('/<path:path>')
-def serve(path):
-    print (path)
-    if path != "" and os.path.exists("public" + path):
-        return flask.send_from_directory('public/', path)
-    else:
-        return flask.send_from_directory('../static/public', 'index.html')
+#@app.route('/<path:path>')
+#def serve(path):
+#    print (path)
+#    if path != "" and os.path.exists("build" + path):
+#        return flask.send_from_directory('build/', path)
+#    else:
+#        return flask.send_from_directory('build', 'index.html')
 
 
 
@@ -46,7 +46,7 @@ def choose_hashtag():
 
 @app.route("/hello")
 def hello():
-    return flask.send_from_directory('../static/public', 'index.html')#render_template('index.html')
+    return render_template('index.html')#flask.send_from_directory('build', 'index.html')#
 
 if __name__ == "__main__":
     app.run(debug=True)
