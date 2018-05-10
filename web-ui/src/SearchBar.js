@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
 import createClass from 'create-react-class';
-import './Hashtag.css';
+import App from './App.css';
 import BoardHashtag from './Board';
 import Hashtag  from './Hashtag';
+import listaHash from './data/listaHash.js';
 
 
 var SearchBar = createClass({
 
 
     getInitialState: function (){
-        return {defaultText: 'Type your hashtag..', items: ['astori',
-                           'africa',
-                           'america',
-                           'elezioni',
-                           'calcio',
-                           'toscana'],
-                hashtags: ['astori',
-                           'africa',
-                           'america',
-                           'elezioni',
-                           'calcio',
-                           'toscana']}
+        return {defaultText: 'Type your hashtag..', items: listaHash,
+                hashtags: listaHash}
                 },
 
 
@@ -36,11 +27,11 @@ var SearchBar = createClass({
 
     render: function (){
         return (<div className='SearchContainer'>
-                    <h1>Search Bar</h1>
+                    <h3>Choose</h3>
                     <form method="post" action="/hello">
                         <input type="text" placeholder={this.state.defaultText} onChange={this.filterButtons} name='hashtag' />
                     </form>
-                    <BoardHashtag inheritState={this.state.items} />
+                    <BoardHashtag inheritState={this.state.items.slice(0,60)} />
                 </div>)
     }
 });

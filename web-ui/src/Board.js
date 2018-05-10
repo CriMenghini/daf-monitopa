@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import createClass from 'create-react-class';
 import Comment from './Comment';
 import Hashtag  from './Hashtag';
-import './Hashtag.css';
+import './App.css';
 
 
 var BoardHashtag = createClass({

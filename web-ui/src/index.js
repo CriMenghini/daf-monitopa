@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import './App.css';
 import registerServiceWorker from './registerServiceWorker';
 import createClass from 'create-react-class';
 import Comment from './Comment';
 import BoardHashtag from './Board';
 import Hashtag  from './Hashtag';
 import SearchBar from './SearchBar';
+import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -45,7 +47,5 @@ var CheckBox = createClass({
 
 
 
-ReactDOM.render(<div>
-                    <SearchBar />
-                </div>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

@@ -1,26 +1,47 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import createClass from 'create-react-class';
+import BoardHashtag from './Board';
+import Hashtag  from './Hashtag';
+import SearchBar from './SearchBar';
+import Menu from './Menu';
+import { Container, Row, Col } from 'reactstrap';
+import VisualisationGrid from './GridVisualisation'
 
 
 
 
-
-
-class App extends Component {
+var App = createClass({
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Monitor what happens on socials!</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+      <div className='App'>
+         <div className="Teal">
+              <div className='Title'>
+                <h1>PA in ascolto</h1>
+              </div>
+         </div>
+         <div className='Sidebar' id='mySidebar'>
+              <div className='Sidebar-hashtag'>
+                <SearchBar />
+              </div>
+
+              <div className='Sidebar-topic'>
+                <h2>Here we place the topic viz</h2>
+              </div>
+         </div>
+         <div className='Visualisation'>
+            <h4>CIAONE</h4>
+            <br/>
+            <VisualisationGrid />
+         </div>
+
+
       </div>
     );
   }
-}
+});
 
 export default App;
 

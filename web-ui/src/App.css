@@ -1,19 +1,100 @@
 .App {
   text-align: center;
+  width: 100%;
+  overflow: hidden;
 }
+
+.Title {margin-top:50px;
+        background-color: #4da6ff;
+        margin-left: 230px;
+        height: 50px;
+        vertical-align: middle;
+        text-align: center;
+        color: white;
+        }
+
+/* Attribute for the sidebar*/
+.Sidebar {height: 100%;
+    width: 230px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: violet;
+    overflow-y: scroll}
+
+/* Define attributes for the Search side bar*/
+.Sidebar-hashtag {margin-left: 0px;
+                  margin-top:200px;
+                  width: 230px;
+                  margin-right: 0px;
+                  }
+
+.Hashtag{display: inline-block;
+            margin-right:0px;
+            margin-top: 10px;
+            align: center;
+            }
+
+.tag{background-color: #4CAF50;
+            display: inline-block;
+            margin-left: 0px;
+            color:white;
+            font-size: 12px;
+            }
+
+.tag:hover{background-color: red;
+          }
+
+.SearchContainer{align: center;
+                font-size: 13px;}
+
+input {line-height: 2;
+        font-size: 13px;
+        height: auto;
+        margin-left: 0px;
+        padding-left: 20px;
+        align: center;
+  }
+
+
+/* DEfine attributes for the Topic choice sidebar*/
+.Sidebar-topic {margin-left: 0px;
+                  margin-top:100px;
+                  width: 300px;
+                  margin-right: 0px;
+                  font-size: 13px;
+                  }
+
+/* Define the space for the single visualizations*/
+.Visualisation{ margin-left: 230px; /* Same as the width of the sidenav */
+                font-size: 28px; /* Increased text to enable scrolling */
+                padding: 0px 0px;
+}
+
+
+.GridViz {background-color: LightBlue;
+          margin-left: 0px;}
+
+
+/* Set box dimensions*/
+/*Row 1*/
+.col-1 {background-color: red;
+        height: 300px;}
+.col-2 {background-color: green;
+        margin-left: 0px;
+        height: 300px;}
+.col-3 {background-color: orange;
+        margin-left: 0px;
+        height: 300px;}
+
+
 
 .App-logo {
   animation: App-logo-spin infinite 5s linear;
   height: 80px;
 }
 
-.App-header {
-  background-color: #4da6ff;
-  height: 50px;
-  vertical-align: middle;
-  text-align: center;
-  color: white;
-}
 
 .App-title {
   font-size: 1.5em;
@@ -28,3 +109,5 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+

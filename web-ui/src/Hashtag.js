@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import createClass from 'create-react-class';
-import './Hashtag.css';
+import './App.css';
 import BoardHashtag from './Board';
 
 
