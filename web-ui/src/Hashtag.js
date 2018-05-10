@@ -6,14 +6,11 @@ import BoardHashtag from './Board';
 
 var Hashtag = createClass({
 
-
-
         render: function (){
             return (<div className='Hashtag'>
-
-
-                        <button className='tag'>#{this.props.children}</button>
-
+                        <form action="/hello" method="post">
+                            <button className='tag' name={this.props.children}>#{this.props.children}</button>
+                        </form>
                     </div>);
         }
 });

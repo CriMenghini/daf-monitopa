@@ -11,14 +11,6 @@ import SearchBar from './SearchBar';
 
 
 
-
-
-
-
-
-
-
-
 var CheckBox = createClass({
 
     getInitialState: function (){
@@ -53,9 +45,7 @@ var CheckBox = createClass({
 
 
 
-
 ReactDOM.render(<div>
                     <SearchBar />
-                    <BoardHashtag />
                 </div>, document.getElementById('root'));
 registerServiceWorker();
