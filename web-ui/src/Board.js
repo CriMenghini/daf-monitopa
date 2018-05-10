@@ -11,6 +11,14 @@ var BoardHashtag = createClass({
         return {items: this.props.inheritState}
     },
 
+    componentWillReceiveProps: function(nextProps){
+	if(nextProps.inheritState){
+		this.setState({
+			items: nextProps.inheritState
+		})
+	}
+},
+
     eachHashtag: function (text, i){
         return (<Hashtag key={i} index={i}>
                     {text}
