@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8369d667-cee5-41d6-b0c6-280ba0eb5041" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/Board.js" afterPath="$PROJECT_DIR$/web-ui/src/Board.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/Hashtag.css" afterPath="$PROJECT_DIR$/web-ui/src/Hashtag.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/Hashtag.js" afterPath="$PROJECT_DIR$/web-ui/src/Hashtag.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,31 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-ui/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-ui/src/App.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-ui/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding>
                 <element signature="e#0#1095#0" expanded="false" />
               </folding>
@@ -47,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchBar.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SearchBar.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-ui/src/SearchBar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="46" lean-forward="false" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="46" />
+            <state relative-caret-position="675">
+              <caret line="45" column="3" lean-forward="false" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -61,20 +41,8 @@
         <entry file="file://$PROJECT_DIR$/web-ui/build/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="512" lean-forward="false" selection-start-line="0" selection-start-column="512" selection-end-line="0" selection-end-column="512" />
+              <caret line="0" column="520" lean-forward="false" selection-start-line="0" selection-start-column="520" selection-end-line="0" selection-end-column="520" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="50" column="66" lean-forward="false" selection-start-line="50" selection-start-column="66" selection-end-line="50" selection-end-column="66" />
-              <folding>
-                <element signature="e#12#24#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -82,18 +50,18 @@
       <file leaf-file-name="Hashtag.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-ui/src/Hashtag.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="43" />
+            <state relative-caret-position="285">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Board.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-ui/src/Board.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
-              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -119,14 +87,14 @@
       <list>
         <option value="$PROJECT_DIR$/web-ui/src/selectHashtag.js" />
         <option value="$PROJECT_DIR$/web-ui/src/App.js" />
-        <option value="$PROJECT_DIR$/server.py" />
-        <option value="$PROJECT_DIR$/web-ui/build/index.html" />
         <option value="$PROJECT_DIR$/web-ui/src/index.js" />
-        <option value="$PROJECT_DIR$/web-ui/src/Hashtag.js" />
         <option value="$PROJECT_DIR$/web-ui/src/Comment.js" />
         <option value="$PROJECT_DIR$/web-ui/src/Hashtag.css" />
         <option value="$PROJECT_DIR$/web-ui/src/SearchBar.js" />
         <option value="$PROJECT_DIR$/web-ui/src/Board.js" />
+        <option value="$PROJECT_DIR$/web-ui/src/Hashtag.js" />
+        <option value="$PROJECT_DIR$/web-ui/build/index.html" />
+        <option value="$PROJECT_DIR$/server.py" />
       </list>
     </option>
   </component>
@@ -161,6 +129,12 @@
               <item name="daf-monitopa" type="b2602c69:ProjectViewProjectNode" />
               <item name="daf-monitopa" type="462c0819:PsiDirectoryNode" />
               <item name="web-ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="daf-monitopa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="daf-monitopa" type="462c0819:PsiDirectoryNode" />
+              <item name="web-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -199,7 +173,7 @@
     <frame x="1280" y="0" width="1016" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19695528" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19609857" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -251,24 +225,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="50" column="66" lean-forward="false" selection-start-line="50" selection-start-column="66" selection-end-line="50" selection-end-column="66" />
-          <folding>
-            <element signature="e#12#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-ui/build/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="512" lean-forward="false" selection-start-line="0" selection-start-column="512" selection-end-line="0" selection-end-column="512" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-ui/src/Comment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -280,7 +236,7 @@
     <entry file="file://$PROJECT_DIR$/web-ui/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
             <element signature="e#0#1095#0" expanded="false" />
           </folding>
@@ -295,26 +251,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-ui/src/SearchBar.js">
+    <entry file="file://$PROJECT_DIR$/web-ui/src/Board.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="46" lean-forward="false" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="46" />
+        <state relative-caret-position="420">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-ui/src/Hashtag.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="43" />
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-ui/src/Board.js">
+    <entry file="file://$PROJECT_DIR$/web-ui/build/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="520" lean-forward="false" selection-start-line="0" selection-start-column="520" selection-end-line="0" selection-end-column="520" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#12#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-ui/src/SearchBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="3" lean-forward="false" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
           <folding />
         </state>
       </provider>

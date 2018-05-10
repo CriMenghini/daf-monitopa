@@ -46,10 +46,18 @@ def choose_hashtag():
 @app.route("/hello", methods=['GET', 'POST'])
 def hello():
     if request.method == 'POST':
-        print (request.form['hashtag'])
-        hashtag = request.form['hashtag']
+        #print(request.form['selectedHashtag'])
+        try:
+            hashtag = request.form['hashtag']
+            print (request.form['hashtag'])
+            return render_template('chosen_hashtag.html', hashtag=hashtag)
+
+        except:
+            hashtag = request.form['selectedHashtag']
+            return render_template('chosen_hashtag.html', hashtag=hashtag)
         # Mettere l'eccezione quando un utente sbaglia lo spelling
-        return render_template('chosen_hashtag.html', hashtag=hashtag)
+        #else:
+        #    return render_template('prova.html')
     else:
         return render_template('index.html')#flask.send_from_directory('build', 'index.html')#
 
