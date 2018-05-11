@@ -79,12 +79,12 @@ input {line-height: 2;
 
 /* Set box dimensions*/
 /*Row 1*/
-.col-1 {background-color: red;
+.col-1 {background-color: Red;
         height: 300px;}
-.col-2 {background-color: green;
+.col-2 {background-color: Green;
         margin-left: 0px;
         height: 300px;}
-.col-3 {background-color: orange;
+.col-3 {background-color: Orange;
         margin-left: 0px;
         height: 300px;}
 
@@ -109,5 +109,4 @@ input {line-height: 2;
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
 

@@ -7,7 +7,8 @@ import Hashtag  from './Hashtag';
 import SearchBar from './SearchBar';
 import Menu from './Menu';
 import { Container, Row, Col } from 'reactstrap';
-import VisualisationGrid from './GridVisualisation'
+import VisualisationGrid from './GridVisualisation';
+import TopUsers from './ParallelBrushAxes';
 
 
 
@@ -33,6 +34,8 @@ var App = createClass({
          </div>
          <div className='Visualisation'>
             <h4>CIAONE</h4>
+
+
             <br/>
             <VisualisationGrid />
          </div>
