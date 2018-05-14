@@ -9,8 +9,9 @@ import Menu from './Menu';
 import { Container, Row, Col } from 'reactstrap';
 import VisualisationGrid from './GridVisualisation';
 import TopUsers from './ParallelBrushAxes';
-
-
+import ChooseTopic from './TopicButton';
+import '../node_modules/bootstrap-italia/dist/css/bootstrap-italia.min.css';
+import '../node_modules/bootstrap-italia/dist/css/italia-icon-font.css';
 
 
 var App = createClass({
@@ -18,11 +19,10 @@ var App = createClass({
     return (
 
       <div className='App'>
-         <div className="Teal">
               <div className='Title'>
-                <h1>PA in ascolto</h1>
+                <h1 class='title-name'>T(wi)scany</h1>
               </div>
-         </div>
+
          <div className='Sidebar' id='mySidebar'>
               <div className='Sidebar-hashtag'>
                 <SearchBar />
@@ -33,8 +33,8 @@ var App = createClass({
          </div>
          <div className='Visualisation'>
             <div>
-            <h4>Questo hashtag compare nei seguenti topic</h4>
-
+                <h4>Questo hashtag compare nei seguenti topic</h4>
+                <ChooseTopic />
             </div>
 
             <br/>
@@ -52,15 +52,12 @@ var App = createClass({
             </p>
          </div>
 
-
-
-
-
       </div>
     );
   }
 });
 
 export default App;
+
 
 

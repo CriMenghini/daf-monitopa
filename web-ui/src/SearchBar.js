@@ -27,7 +27,7 @@ var SearchBar = createClass({
 
     render: function (){
         return (<div className='SearchContainer'>
-                    <h3>Choose</h3>
+                    <h3 className='search-title'>Choose</h3>
                     <form method="post" action="/hello">
                         <input type="text" placeholder={this.state.defaultText} onChange={this.filterButtons} name='hashtag' />
                     </form>

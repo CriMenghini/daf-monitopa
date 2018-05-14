@@ -25,38 +25,41 @@ var VisualisationGrid = createClass({
                                 </div>
                           </Col>
                           <Col md="4" className="col-2">
-                                <div>
+                                <div className="NumRetweet">
                                      Top 10 Retweet
                                      <NumRetweet />
                                 </div>
                           </Col>
                           <Col md="4" className="col-3">
-                                <div>
+                                <div className="TweetSentiment">
                                      Tweet Sentiment
                                      <Sentiment />
                                 </div>
                           </Col>
                         </Row>
-                        <br/>
+
                         <Row>
                           <Col md="4" className="col-1">
-                                <div className="NumTweet">
+                                <div className="UserUnique">
                                     Utenti unici nel tempo
                                      <UtentiUnici />
 
                                 </div>
                           </Col>
                           <Col md="4" className="col-2">
-                                <div>
+                                <div className="TopUsers">
                                      Top 10 users
                                     <TopUsers />
                                 </div>
                           </Col>
                           <Col md="4" className="col-3">
-                                <div>
+                                <div className="StreamTweet">
                                      Tweet stream
                                      <TimeSeries />
                                 </div>
+
+
+
                           </Col>
                         </Row>
                     </Container>
