@@ -21,10 +21,11 @@ var NumberSquare = createClass({
         var w = '100%';
         var h = 200;
         //var dataset = [{'num_tweet':100, 'num_hash':30, 'num_utenti':15}];
-        var dataset = [{'num_tweet':100, 'num_hash':30, 'num_utenti':15}]
+        var dataSet = [{'num_tweet':100, 'num_hash':30, 'num_utenti':15}]
 
 	    return (
 	                <VictoryBar />
+	                //<RectText data={dataSet}/>
 	            )
     }
 });

@@ -26,19 +26,34 @@ var App = createClass({
          <div className='Sidebar' id='mySidebar'>
               <div className='Sidebar-hashtag'>
                 <SearchBar />
+                <br/>
               </div>
 
-              <div className='Sidebar-topic'>
-                <h2>Here we place the topic viz</h2>
-              </div>
+
          </div>
          <div className='Visualisation'>
-            <h4>CIAONE</h4>
+            <div>
+            <h4>Questo hashtag compare nei seguenti topic</h4>
 
+            </div>
 
             <br/>
             <VisualisationGrid />
+            <br/>
+            <br/>
+            <br/>
+            <h1>
+                In che consiste il progetto?
+            </h1>
+            <p>
+                Hello, how are you? Hello, how are you? Hello, how are you? Hello, how are you?
+                Hello, how are you? Hello, how are you? Hello, how are you? Hello, how are you?
+                Hello, how are you? Hello, how are you? Hello, how are you? Hello, how are you?
+            </p>
          </div>
+
+
+
 
 
       </div>

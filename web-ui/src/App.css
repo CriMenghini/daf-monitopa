@@ -73,18 +73,18 @@ input {line-height: 2;
 }
 
 
-.GridViz {background-color: LightBlue;
+.GridViz {background-color: grey;
           margin-left: 0px;}
 
 
 /* Set box dimensions*/
 /*Row 1*/
-.col-1 {background-color: Red;
+.col-1 {background-color: grey;
         height: 300px;}
-.col-2 {background-color: Green;
+.col-2 {background-color: grey;
         margin-left: 0px;
         height: 300px;}
-.col-3 {background-color: Orange;
+.col-3 {background-color: grey;
         margin-left: 0px;
         height: 300px;}
 

@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import { VictoryBar, VictoryAxis, VictoryBrushLine, VictoryChart, VictoryLine, VictoryLabel} from 'victory';
-import { _ } from "jquery";
+import {VictoryTooltip, VictoryBar, VictoryAxis, VictoryBrushLine, VictoryChart, VictoryLine, VictoryLabel} from 'victory';
+var _ = require('lodash');
+
 
 
 const data = [
-  { name: "Adrien", strength: 5, intelligence: 30, speed: 500, luck: 3 },
-  { name: "Brice", strength: 1, intelligence: 13, speed: 550, luck: 2 },
-  { name: "Casey", strength: 4, intelligence: 15, speed: 80, luck: 1 },
-  { name: "Drew", strength: 3, intelligence: 25, speed: 600, luck: 5 },
-  { name: "Erin", strength: 9, intelligence: 50, speed: 350, luck: 4 },
-  { name: "Francis", strength: 2, intelligence: 40, speed: 200, luck: 2 }
+  { name: "Adrien", strength: 5, intelligence: 30, speed: 500, luck: 3, label: 'ciao' },
+  { name: "Brice", strength: 1, intelligence: 13, speed: 550, luck: 2, label: 'ciao'  },
+  { name: "Casey", strength: 4, intelligence: 15, speed: 80, luck: 1 , label: 'ciao' },
+  { name: "Drew", strength: 3, intelligence: 25, speed: 600, luck: 5, label: 'ciao'  },
+  { name: "Erin", strength: 9, intelligence: 50, speed: 350, luck: 4 , label: 'ciao' },
+  { name: "Francis", strength: 2, intelligence: 40, speed: 200, luck: 2, label: 'ciao'  }
 ];
 const attributes = ["strength", "intelligence", "speed", "luck"];
-const users = ['Paolo', 'Ginevra', 'Rosa', 'Marco', 'Gio', 'Ra'];
-const height = 200;
-const width = 200;
-const padding = { top: 50, left: 50, right: 50, bottom: 50 };
+const height = 400;
+const width = 500;
+const padding = { top: 100, left: 50, right: 50, bottom: 50 };
 
 class TopUsers extends React.Component {
   constructor() {
@@ -96,40 +96,42 @@ class TopUsers extends React.Component {
       >
         <VictoryAxis
           style={{
-            tickLabels: { fontSize: 3 }, axis: { stroke: "none" }
+            tickLabels: { fontSize: 15 }, axis: { stroke: "none" }
           }}
           tickLabelComponent={<VictoryLabel y={padding.top - 40}/>}
         />
         {this.state.datasets.map((dataset) => (
           <VictoryLine
+            animate={{ duration: 1000 }}
             key={dataset.name} name={dataset.name} data={dataset.data}
             groupComponent={<g/>}
             style={{ data: {
-              stroke: "green",
+              stroke: "tomato",
               opacity: this.isActive(dataset) ? 1 : 0.2
             } }}
           />
         ))}
-
-          {attributes.map((attribute, index) => (
+        {attributes.map((attribute, index) => (
           <VictoryAxis dependentAxis
             key={index}
             axisComponent={
-              <VictoryBrushLine
+              <VictoryBrushLine name={attribute}
+                width={20}
+                onBrushDomainChange={this.onDomainChange.bind(this)}
               />
             }
             offsetX={this.getAxisOffset(index)}
             style={{
-              tickLabels: { fontSize: 3, padding: 15, pointerEvents: "none" },
+              tickLabels: { fontSize: 10, padding: 15, pointerEvents: "none" },
             }}
             tickValues={[0.2, 0.4, 0.6, 0.8, 1]}
             tickFormat={(tick) => Math.round(tick * this.state.maximumValues[index])}
           />
         ))}
-
       </VictoryChart>
     );
   }
 }
+
 
 export default TopUsers;
