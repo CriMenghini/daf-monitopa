@@ -28,10 +28,12 @@ var SearchBar = createClass({
     render: function (){
         return (<div className='SearchContainer'>
                     <h3 className='search-title'>Choose</h3>
-                    <form method="post" action="/hello">
+
+                    <form>
                         <input type="text" placeholder={this.state.defaultText} onChange={this.filterButtons} name='hashtag' />
                     </form>
-                    <BoardHashtag inheritState={this.state.items.slice(0,60)} />
+
+                    <BoardHashtag inheritState={this.state.items.slice(0,60)}  { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick}/>
                 </div>)
     }
 });

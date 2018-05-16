@@ -8,8 +8,8 @@ var Hashtag = createClass({
 
         render: function (){
             return (<div className='Hashtag'>
-                        <form action="/hello" method="post">
-                            <button className='tag' name='selectedHashtag' value={this.props.children}>#{this.props.children}</button>
+                        <form onSubmit={this.props.funzioneSubmit}>
+                            <button className='tag' name='selectedHashtag' value={this.props.children} onClick={this.props.funzioneClick}>#{this.props.children}</button>
                         </form>
                     </div>);
         }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import createClass from 'create-react-class';
-import NumberSquare from './NumberSquare';
 import TopUsers from './ParallelBrushAxes';
 import { _ } from "jquery";
 import NumTweet from './NumberTweet';
@@ -10,10 +9,17 @@ import Sentiment from './TweetSentiment';
 import NumRetweet from './NumberRetweet';
 import UtentiUnici from './UtentiUnici';
 import TimeSeries from './TimeSeries';
-var Ajv = require('ajv');
+import numTweet from './data/numberTweet_hashtag.js';
+import Retweet from './data/TopRetweet.js';
+
+
 
 
 var VisualisationGrid = createClass({
+
+
+
+
     render: function (){
         return (<div>
                     <Container className='GridViz'>
@@ -21,13 +27,13 @@ var VisualisationGrid = createClass({
                           <Col md="4" className="col-1">
                                 <div className="NumTweet">
                                     Numero di Tweet
-                                    <NumTweet maxValue={10}/>
+                                    <NumTweet { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick}/>
                                 </div>
                           </Col>
                           <Col md="4" className="col-2">
                                 <div className="NumRetweet">
                                      Top 10 Retweet
-                                     <NumRetweet />
+                                     <NumRetweet dati={Retweet}/>
                                 </div>
                           </Col>
                           <Col md="4" className="col-3">

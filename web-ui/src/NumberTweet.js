@@ -5,7 +5,8 @@ class NumTweet extends React.Component {
   constructor() {
     super();
     this.state = {
-      percent: 0, data: this.getData(0)
+      dati: this.getData(0),
+      percent: 0
     };
   }
 
@@ -13,12 +14,12 @@ class NumTweet extends React.Component {
   componentDidMount() {
     let percent = 0;
     this.setStateInterval = window.setInterval(() => {
-      percent += 10;
-      if (percent >= 101)
+      percent += this.props.numtweet/3;
+      if (percent >= this.props.numtweet+1)
         {this.myStopFunction()}
 
       else{this.setState({
-        percent, data: this.getData(percent)
+        percent, dati: this.getData(percent)
       })};
     }, 2000);
   }
@@ -35,6 +36,12 @@ class NumTweet extends React.Component {
     clearInterval(this.setStateInterval);
     }
 
+
+  update() {
+
+
+  }
+
   render() {
     return (
       <div>
@@ -43,7 +50,7 @@ class NumTweet extends React.Component {
             standalone={false}
             animate={{ duration: 1000 }}
             width={400} height={300}
-            data={this.state.data}
+            data={[{x: 1, y: this.props.numtweet}, {x:2, y:100-this.props.numtweet}]}
             innerRadius={120}
             cornerRadius={25}
             labels={() => null}
@@ -55,7 +62,7 @@ class NumTweet extends React.Component {
               }
             }}
           />
-          <VictoryAnimation duration={1000} data={this.state}>
+          <VictoryAnimation duration={1000} data={{dati: [{x: 1, y: this.props.numtweet}, {x:2, y:1000-this.props.numtweet}], percent: this.state.percent}}>
             {(newProps) => {
               return (
                 <VictoryLabel

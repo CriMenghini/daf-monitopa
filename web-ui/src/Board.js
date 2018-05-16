@@ -20,7 +20,7 @@ var BoardHashtag = createClass({
 },
 
     eachHashtag: function (text, i){
-        return (<Hashtag key={i} index={i}>
+        return (<Hashtag key={i} index={i}  { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick}>
                     {text}
                 </Hashtag>
            );
