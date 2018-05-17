@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { VictoryTheme, VictoryTooltip,VictoryGroup, VictoryBar, VictoryAnimation, VictoryBrushLine, VictoryChart, VictoryLine, VictoryLabel, VictoryPie} from 'victory';
 
-class NumRetweet extends React.Component {
+class TopUsers extends React.Component {
 
   componentDidMount() {
 
@@ -18,7 +18,7 @@ class NumRetweet extends React.Component {
                       duration: 2000,
                       onLoad: { duration: 1000 }
                     }}
-          domain={{ y: [0, 10] , x: [0, this.props.numretweet[0].y]}}
+          domain={{ y: [0, 10] , x: [0, this.props.DataSet[0].y]}}
         >
             <VictoryGroup horizontal
               //height = {250}
@@ -28,7 +28,7 @@ class NumRetweet extends React.Component {
             >
               <VictoryBar
                 labelComponent={<VictoryTooltip/>}
-                data={this.props.numretweet}
+                data={this.props.DataSet}
               />
 
 
@@ -39,4 +39,4 @@ class NumRetweet extends React.Component {
   }
 }
 
-export default NumRetweet;
+export default TopUsers;

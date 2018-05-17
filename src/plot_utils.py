@@ -59,11 +59,11 @@ def top_10_rt(data, name):
         retweet_output_dict['label'] = t + "\nAutore: " + str(u) + "\nFollowers: " + str(fol)
         list_retweet += [retweet_output_dict]
 
-    f = open('web-ui/src/data/TopRetweet.js', 'w')
-    f.write('var Retweet = ' + repr(list_retweet))
-    f.write('\n')
-    f.write('export default Retweet')
-    f.close()
+    #f = open('web-ui/src/data/TopRetweet.js', 'w')
+    #f.write('var Retweet = ' + repr(list_retweet))
+    #f.write('\n')
+    #f.write('export default Retweet')
+    #f.close()
     return list_retweet
 
 

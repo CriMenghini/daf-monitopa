@@ -37,10 +37,14 @@ class NumTweet extends React.Component {
     }
 
 
-  update() {
-
-
-  }
+//  componentWillReceiveProps(nextProps){
+//	if(nextProps.unique){
+//		this.setState({
+//		    percent: nextProps.percent,
+//			recData: nextProps.unique
+//		})
+//	}
+//}
 
   render() {
     return (

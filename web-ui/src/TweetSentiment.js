@@ -30,19 +30,17 @@ CustomLabel.propTypes = { text: PropTypes.string };
 class Sentiment extends React.Component {
   render() {
     return (
-        <VictoryPie  height={270}
+        <VictoryPie  height={290}
 
-          style={{ labels: { fontSize: 45,fill: (d) => d.y == 5 ? "green":"red" }, data: {fill: (d) => {
-                return d.x == 1 ? "green" : "red";
+          style={{ labels: { fontSize: 45,fill: (d) => d.y == this.props.sentiment[0].y ? "green":"red"}, data: {fill: (d) => { if (d.x == 1){return 'green'}
+          else if (d.x == 2){return 'red'}
+          else {return 'orange'};
               }}}}
-          innerRadius={130}
+          innerRadius={140}
           labelRadius={100}
           labels={(d) => d.y}//d.y >= 100 ? "green" : "red"
-          labelComponent={<CustomLabel/>}
-          data={[
-            { x: 1, y: 5},
-            { x: 2, y: 4}
-          ]}
+          labelComponent={<CustomLabel { ...this.props } { ...this.state}/>}
+          data={this.props.sentiment}
         />
     );
   }

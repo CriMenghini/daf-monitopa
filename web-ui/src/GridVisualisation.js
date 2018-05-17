@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import createClass from 'create-react-class';
-import TopUsers from './ParallelBrushAxes';
+import TopUsers from './TopUsers';
 import { _ } from "jquery";
 import NumTweet from './NumberTweet';
 import Sentiment from './TweetSentiment';
@@ -33,13 +33,14 @@ var VisualisationGrid = createClass({
                           <Col md="4" className="col-2">
                                 <div className="NumRetweet">
                                      Top 10 Retweet
-                                     <NumRetweet dati={Retweet}/>
+                                     <NumRetweet dati={Retweet} { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick}/>
                                 </div>
                           </Col>
                           <Col md="4" className="col-3">
                                 <div className="TweetSentiment">
                                      Tweet Sentiment
-                                     <Sentiment />
+                                     <br/>
+                                     <Sentiment { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick} />
                                 </div>
                           </Col>
                         </Row>
@@ -48,20 +49,20 @@ var VisualisationGrid = createClass({
                           <Col md="4" className="col-1">
                                 <div className="UserUnique">
                                     Utenti unici nel tempo
-                                     <UtentiUnici />
+                                     <UtentiUnici { ...this.props } { ...this.state} />
 
                                 </div>
                           </Col>
                           <Col md="4" className="col-2">
                                 <div className="TopUsers">
                                      Top 10 users
-                                    <TopUsers />
+                                    <TopUsers { ...this.props } { ...this.state} />
                                 </div>
                           </Col>
                           <Col md="4" className="col-3">
                                 <div className="StreamTweet">
                                      Tweet stream
-                                     <TimeSeries />
+                                     <TimeSeries { ...this.props } { ...this.state} />
                                 </div>
 
 

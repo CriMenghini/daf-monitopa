@@ -7,12 +7,13 @@ var _ = require('lodash');
 class UtentiUnici extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { data: this.getData() };
+    this.state = {  dati: this.getData(),
+                    recData: [this.props.unique]};
   }
 
   componentDidMount() {
     this.setStateInterval = window.setInterval(() => {
-      this.setState({ data: this.getData() });
+      this.setState({ dati: this.getData() });
     }, 4000);
     this.myStopFunction()
   }
@@ -24,26 +25,30 @@ class UtentiUnici extends React.Component {
 
   getData() {
     return _.range(1).map(() => {
-      return [
-        { x: 12, y: _.random(1, 5) },
-        { x: 2, y: _.random(1, 10) },
-        { x: 3, y: _.random(2, 10) },
-        { x: 4, y: _.random(2, 20) },
-        { x: 5, y: _.random(2, 15) }
-      ];
+      return this.props.unique;
     });
   }
+
+  componentWillReceiveProps(nextProps){
+	if(nextProps.unique){
+		this.setState({
+		    dati: [nextProps.unique],
+			recData: [nextProps.unique]
+		})
+	}
+}
 
   render() {
     return (
       <VictoryChart
+        scale={{ x: "time" }}
         theme={VictoryTheme.greyscale}
         animate={{ duration: 1000 }}
       >
         <VictoryStack
           colorScale={"blue"}
         >
-          {this.state.data.map((data, i) => {
+          {this.state.dati.map((data, i) => {
             return (
               <VictoryArea
                 key={i}

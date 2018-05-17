@@ -16,6 +16,18 @@ class TimeSeries extends React.Component {
     this.setState({ zoomDomain: domain });
   }
 
+
+  parseDate(date) {
+        var arrayDate = new Array();
+
+        for (var i=0; i < date.length; i++){
+            var dict = {a: new Date(date[i].a), b: date[i].b}
+            arrayDate.push(dict)
+        }
+        return arrayDate
+  }
+
+
   render() {
     return (
       <div>
@@ -32,33 +44,23 @@ class TimeSeries extends React.Component {
               style={{
                 data: { stroke: "tomato", fill: "red" },
               }}
-              data={[
-                { a: new Date(1982, 1, 1), b: 125 },
-                { a: new Date(1987, 1, 1), b: 257 },
-                { a: new Date(1993, 1, 1), b: 345 },
-                { a: new Date(1997, 1, 1), b: 515 },
-                { a: new Date(2001, 1, 1), b: 132 },
-                { a: new Date(2005, 1, 1), b: 305 },
-                { a: new Date(2011, 1, 1), b: 270 },
-                { a: new Date(2015, 1, 1), b: 470 }
-              ]}
+              data={this.parseDate(this.props.streamneg)}
               x="a"
               y="b"
             />
             <VictoryLine animate={{ duration: 2000 }}
               style={{
-                data: { stroke: "tomato", fill: "green" },
+                data: { stroke: "green", fill: "green" },
               }}
-              data={[
-                { a: new Date(1982, 1, 1), b: 105 },
-                { a: new Date(1987, 1, 1), b: 257 },
-                { a: new Date(1993, 1, 1), b: 35 },
-                { a: new Date(1997, 1, 1), b: 15 },
-                { a: new Date(2001, 1, 1), b: 150 },
-                { a: new Date(2005, 1, 1), b: 305 },
-                { a: new Date(2011, 1, 1), b: 270 },
-                { a: new Date(2015, 1, 1), b: 470 }
-              ]}
+              data={this.parseDate(this.props.streampos)}
+              x="a"
+              y="b"
+            />
+            <VictoryLine animate={{ duration: 2000 }}
+              style={{
+                data: { stroke: "green", fill: "orange" },
+              }}
+              data={this.parseDate(this.props.streamneu)}
               x="a"
               y="b"
             />
@@ -83,33 +85,23 @@ class TimeSeries extends React.Component {
               style={{
                 data: { stroke: "tomato" }
               }}
-              data={[
-                { key: new Date(1982, 1, 1), b: 125 },
-                { key: new Date(1987, 1, 1), b: 257 },
-                { key: new Date(1993, 1, 1), b: 345 },
-                { key: new Date(1997, 1, 1), b: 515 },
-                { key: new Date(2001, 1, 1), b: 132 },
-                { key: new Date(2005, 1, 1), b: 305 },
-                { key: new Date(2011, 1, 1), b: 270 },
-                { key: new Date(2015, 1, 1), b: 470 }
-              ]}
-              x="key"
+              data={this.parseDate(this.props.streamneg)}
+              x="a"
               y="b"
             />
-            <VictoryLine animate={{ duration: 2000 }}
+            <VictoryLine animate={{ duration: 1000 }}
               style={{
                 data: { stroke: "green" },
               }}
-              data={[
-                { a: new Date(1982, 1, 1), b: 105 },
-                { a: new Date(1987, 1, 1), b: 257 },
-                { a: new Date(1993, 1, 1), b: 35 },
-                { a: new Date(1997, 1, 1), b: 15 },
-                { a: new Date(2001, 1, 1), b: 150 },
-                { a: new Date(2005, 1, 1), b: 305 },
-                { a: new Date(2011, 1, 1), b: 270 },
-                { a: new Date(2015, 1, 1), b: 470 }
-              ]}
+              data={this.parseDate(this.props.streampos)}
+              x="a"
+              y="b"
+            />
+            <VictoryLine animate={{ duration: 1000 }}
+              style={{
+                data: { stroke: "orange" },
+              }}
+              data={this.parseDate(this.props.streamneu)}
               x="a"
               y="b"
             />

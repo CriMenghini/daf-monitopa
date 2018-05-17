@@ -4,14 +4,6 @@ var _ = require('lodash');
 
 
 
-const data = [
-  { name: "Adrien", strength: 5, intelligence: 30, speed: 500, luck: 3, label: 'ciao' },
-  { name: "Brice", strength: 1, intelligence: 13, speed: 550, luck: 2, label: 'ciao'  },
-  { name: "Casey", strength: 4, intelligence: 15, speed: 80, luck: 1 , label: 'ciao' },
-  { name: "Drew", strength: 3, intelligence: 25, speed: 600, luck: 5, label: 'ciao'  },
-  { name: "Erin", strength: 9, intelligence: 50, speed: 350, luck: 4 , label: 'ciao' },
-  { name: "Francis", strength: 2, intelligence: 40, speed: 200, luck: 2, label: 'ciao'  }
-];
 const attributes = ["strength", "intelligence", "speed", "luck"];
 const height = 400;
 const width = 500;
@@ -20,17 +12,23 @@ const padding = { top: 100, left: 50, right: 50, bottom: 50 };
 class TopUsers extends React.Component {
   constructor() {
     super();
-    const maximumValues = this.getMaximumValues();
-    const datasets = this.normalizeData(maximumValues);
+   // const maximumValues = this.getMaximumValues();
+    //const datasets = this.normalizeData(maximumValues);
     this.state = {
-      maximumValues, datasets, filters: {}, activeDatasets: [], isFiltered: false
+      data:  [ { name: "Adrien", strength: 5, intelligence: 30, speed: 500, luck: 3, label: 'ciao' },
+  { name: "Brice", strength: 1, intelligence: 13, speed: 550, luck: 2, label: 'ciao'  },
+  { name: "Casey", strength: 4, intelligence: 15, speed: 80, luck: 1 , label: 'ciao' },
+  { name: "Drew", strength: 3, intelligence: 25, speed: 600, luck: 5, label: 'ciao'  },
+  { name: "Erin", strength: 9, intelligence: 50, speed: 350, luck: 4 , label: 'ciao' },
+  { name: "Francis", strength: 2, intelligence: 40, speed: 200, luck: 2, label: 'ciao'  }
+], maximumValues: this.getMaximumValues(this.state.data), datasets: this.normalizeData(this.state.maximumValues), filters: {}, activeDatasets: [], isFiltered: false
     };
   }
 
-  getMaximumValues() {
+  getMaximumValues(datas) {
     // Find the maximum value for each axis. This will be used to normalize data and re-scale axis ticks
     return attributes.map((attribute) => {
-      return data.reduce((memo, datum) => {
+      return datas.reduce((memo, datum) => {
         return datum[attribute] > memo ? datum[attribute] : memo;
       }, -Infinity);
     });
@@ -38,7 +36,7 @@ class TopUsers extends React.Component {
 
   normalizeData(maximumValues) {
     // construct normalized datasets by dividing the value for each attribute by the maximum value
-    return data.map((datum) => ({
+    return this.state.data.map((datum) => ({
       name: datum.name,
       data: attributes.map((attribute, i) => (
         { x: attribute, y: datum[attribute] / maximumValues[i] }
@@ -88,6 +86,16 @@ class TopUsers extends React.Component {
     const step = (width - padding.left - padding.right) / (attributes.length - 1);
     return step * index + padding.left;
   }
+
+
+  componentWillReceiveProps(nextProps){
+	if(nextProps.unique){
+		this.setState({
+            maximumValues: this.getMaximumValues(),
+		    data: nextProps.DataSet
+		})
+	}
+}
 
   render() {
     return (
