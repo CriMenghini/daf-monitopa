@@ -61,9 +61,6 @@ def hello():
         lista_tweet_neg = [i for i,j in sent_sub_tweet.items() if j=='negative']
         lista_tweet_neu = [i for i,j in sent_sub_tweet.items() if j=='neutral']
 
-        print (stream_tweet(data,lista_tweet_pos))
-        print (stream_tweet(data,lista_tweet_neg))
-        print (stream_tweet(data,lista_tweet_neu))
 
         # Utenti unici
         list_unici_utenti = unique_users(data, lista_tweet)
