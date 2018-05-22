@@ -38,7 +38,18 @@ class UtentiUnici extends React.Component {
 	}
 }
 
+  parseDate(date) {
+        var arrayDate = new Array();
+
+        for (var i=0; i < date.length; i++){
+            var dict = {a: new Date(date[i].a), b: date[i].b}
+            arrayDate.push(dict)
+        }
+        return arrayDate
+  }
+
   render() {
+
     return (
       <VictoryChart
         scale={{ x: "time" }}

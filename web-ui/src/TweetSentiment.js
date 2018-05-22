@@ -10,7 +10,7 @@ class CustomLabel extends React.Component {
         <VictoryLabel {...this.props}/>
         <VictoryTooltip
           {...this.props}
-          x={200} y={180}
+          x={200} y={170}
           text={`${this.props.text}%`}
           orientation="top"
           pointerLength={0}
@@ -29,19 +29,24 @@ CustomLabel.propTypes = { text: PropTypes.string };
 
 class Sentiment extends React.Component {
   render() {
-    return (
-        <VictoryPie  height={290}
+    return (<div>
+        <br />
+        <VictoryPie  height={250}
 
-          style={{ labels: { fontSize: 45,fill: (d) => d.y == this.props.sentiment[0].y ? "green":"red"}, data: {fill: (d) => { if (d.x == 1){return 'green'}
-          else if (d.x == 2){return 'red'}
-          else {return 'orange'};
-              }}}}
-          innerRadius={140}
-          labelRadius={100}
+          style={{ labels: { fontSize: 30,fill: (d) =>  {if (d.x == 1){return 'green'}
+                                                         else if (d.x == 2){return 'red'}
+                                                         else {return 'orange'};}  },
+                   data: { fill: (d) => { if (d.x == 1){return 'green'}
+                                          else if (d.x == 2){return 'red'}
+                                          else {return 'orange'};
+                                              }}}}
+          innerRadius={110}
+          labelRadius={300}
           labels={(d) => d.y}//d.y >= 100 ? "green" : "red"
           labelComponent={<CustomLabel { ...this.props } { ...this.state}/>}
           data={this.props.sentiment}
         />
+        </div>
     );
   }
 }

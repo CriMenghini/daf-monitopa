@@ -2,20 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8369d667-cee5-41d6-b0c6-280ba0eb5041" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-ui/src/TopUsers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-ui/src/sentData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/update_page.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/plot_utils.py" afterPath="$PROJECT_DIR$/src/plot_utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/App.css" afterPath="$PROJECT_DIR$/web-ui/src/App.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/App.js" afterPath="$PROJECT_DIR$/web-ui/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/GridVisualisation.js" afterPath="$PROJECT_DIR$/web-ui/src/GridVisualisation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/NumberRetweet.js" afterPath="$PROJECT_DIR$/web-ui/src/NumberRetweet.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/NumberTweet.js" afterPath="$PROJECT_DIR$/web-ui/src/NumberTweet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/ParallelBrushAxes.js" afterPath="$PROJECT_DIR$/web-ui/src/ParallelBrushAxes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/SearchBar.js" afterPath="$PROJECT_DIR$/web-ui/src/SearchBar.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/TimeSeries.js" afterPath="$PROJECT_DIR$/web-ui/src/TimeSeries.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/TweetSentiment.js" afterPath="$PROJECT_DIR$/web-ui/src/TweetSentiment.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/UtentiUnici.js" afterPath="$PROJECT_DIR$/web-ui/src/UtentiUnici.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-ui/src/data/TopRetweet.js" afterPath="$PROJECT_DIR$/web-ui/src/data/TopRetweet.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,123 +22,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="732">
-              <caret line="180" column="43" lean-forward="false" selection-start-line="180" selection-start-column="23" selection-end-line="180" selection-end-column="43" />
-              <folding>
-                <element signature="e#12#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UtentiUnici.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-ui/src/UtentiUnici.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimeSeries.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web-ui/src/TimeSeries.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="33" column="68" lean-forward="true" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TweetSentiment.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-ui/src/TweetSentiment.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="3" lean-forward="true" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-ui/build/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="520" lean-forward="false" selection-start-line="0" selection-start-column="520" selection-end-line="0" selection-end-column="520" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NumberTweet.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-ui/src/NumberTweet.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="2" lean-forward="false" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GridVisualisation.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-ui/src/GridVisualisation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-221">
-              <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-ui/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-491">
-              <caret line="50" column="23" lean-forward="false" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TopUsers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-ui/src/TopUsers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="24" lean-forward="true" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plot_utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/plot_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="65" column="5" lean-forward="false" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>grid</find>
-      <find>line</find>
-      <find>heigh</find>
-      <find>size</find>
-      <find>black</find>
-      <find>dataset</find>
-      <find>height</find>
-      <find>percent</find>
-      <find>board</find>
-      <find>contain</find>
       <find>Hash</find>
       <find>tag</find>
       <find>.datase</find>
@@ -150,18 +41,28 @@
       <find>Title</find>
       <find>topic</find>
       <find>title</find>
-      <find>search</find>
       <find>Search</find>
       <find>numt</find>
       <find>f2f2</find>
       <find>choos</find>
-      <find>input</find>
       <find>dati</find>
       <find>sente</find>
       <find>data</find>
       <find>topi</find>
-      <find>viz</find>
       <find>date</find>
+      <find>input</find>
+      <find>search</find>
+      <find>NumTweet</find>
+      <find>visuali</find>
+      <find>font</find>
+      <find>viz</find>
+      <find>new</find>
+      <find>red</find>
+      <find>text</find>
+      <find>sentimen</find>
+      <find>parse</find>
+      <find>recda</find>
+      <find>p.</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,34 +78,34 @@
         <option value="$PROJECT_DIR$/web-ui/src/Menu.js" />
         <option value="$PROJECT_DIR$/web-ui/src/NumberSquare.js" />
         <option value="$PROJECT_DIR$/web-ui/src/TopicButton.js" />
-        <option value="$PROJECT_DIR$/web-ui/src/App.css" />
         <option value="$PROJECT_DIR$/web-ui/src/data/numberTweet_hashtag.js" />
         <option value="$PROJECT_DIR$/web-ui/src/data/TopRetweet.js" />
         <option value="$PROJECT_DIR$/web-ui/src/tryViz.js" />
-        <option value="$PROJECT_DIR$/web-ui/src/Hashtag.js" />
         <option value="$PROJECT_DIR$/web-ui/src/trySearch.js" />
         <option value="$PROJECT_DIR$/web-ui/build/index.html" />
-        <option value="$PROJECT_DIR$/web-ui/src/SearchBar.js" />
         <option value="$PROJECT_DIR$/web-ui/src/Board.js" />
         <option value="$PROJECT_DIR$/web-ui/src/NumberRetweet.js" />
-        <option value="$PROJECT_DIR$/web-ui/src/NumberTweet.js" />
         <option value="$PROJECT_DIR$/web-ui/src/sentData.js" />
         <option value="$PROJECT_DIR$/web-ui/src/ParallelBrushAxes.js" />
         <option value="$PROJECT_DIR$/web-ui/src/GridVisualisation.js" />
         <option value="$PROJECT_DIR$/web-ui/src/TopUsers.js" />
-        <option value="$PROJECT_DIR$/src/plot_utils.py" />
-        <option value="$PROJECT_DIR$/web-ui/src/TweetSentiment.js" />
+        <option value="$PROJECT_DIR$/web-ui/src/Hashtag.js" />
+        <option value="$PROJECT_DIR$/web-ui/src/SearchBar.js" />
+        <option value="$PROJECT_DIR$/web-ui/src/App.css" />
+        <option value="$PROJECT_DIR$/web-ui/src/NumberTweet.js" />
         <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/src/update_page.py" />
+        <option value="$PROJECT_DIR$/src/plot_utils.py" />
         <option value="$PROJECT_DIR$/web-ui/src/App.js" />
         <option value="$PROJECT_DIR$/web-ui/src/TimeSeries.js" />
+        <option value="$PROJECT_DIR$/web-ui/src/TweetSentiment.js" />
         <option value="$PROJECT_DIR$/web-ui/src/UtentiUnici.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="1280" />
-    <option name="width" value="804" />
-    <option name="height" value="1080" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="756" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -335,10 +236,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="0" width="1092" height="1080" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3704762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17689823" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -387,9 +287,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#24#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -437,19 +335,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1290">
           <caret line="86" column="23" lean-forward="false" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-ui/src/selectHashtag.js" />
     <entry file="file://$PROJECT_DIR$/web-ui/src/Hashtag.css" />
-    <entry file="file://$PROJECT_DIR$/web-ui/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-ui/src/App.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -547,14 +440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-ui/src/Hashtag.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="169" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="169" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-ui/src/tryViz.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -567,14 +452,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="129" lean-forward="false" selection-start-line="11" selection-start-column="129" selection-end-line="11" selection-end-column="129" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-ui/src/Board.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="28" lean-forward="true" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -595,14 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-ui/src/SearchBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="197" lean-forward="false" selection-start-line="35" selection-start-column="79" selection-end-line="35" selection-end-column="197" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-ui/src/NumberRetweet.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -619,26 +488,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-ui/src/GridVisualisation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-ui/src/TopUsers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="41" column="24" lean-forward="true" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/plot_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="65" column="5" lean-forward="false" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -651,52 +504,108 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web-ui/src/Board.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-ui/src/GridVisualisation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="27" column="56" lean-forward="false" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-ui/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="206" column="29" lean-forward="false" selection-start-line="206" selection-start-column="29" selection-end-line="206" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-ui/src/SearchBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="29" column="68" lean-forward="false" selection-start-line="29" selection-start-column="68" selection-end-line="29" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web-ui/src/NumberTweet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="2" lean-forward="false" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
+        <state relative-caret-position="502">
+          <caret line="78" column="14" lean-forward="true" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/plot_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-ui/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-491">
-          <caret line="50" column="23" lean-forward="false" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+        <state relative-caret-position="223">
+          <caret line="30" column="79" lean-forward="false" selection-start-line="30" selection-start-column="79" selection-end-line="30" selection-end-column="79" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="180" column="43" lean-forward="false" selection-start-line="180" selection-start-column="23" selection-end-line="180" selection-end-column="43" />
-          <folding>
-            <element signature="e#12#24#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-ui/src/TweetSentiment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="3" lean-forward="true" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-ui/src/UtentiUnici.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+        <state relative-caret-position="513">
+          <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-ui/src/TimeSeries.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="33" column="68" lean-forward="true" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="68" />
+        <state relative-caret-position="477">
+          <caret line="46" column="56" lean-forward="true" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-ui/src/UtentiUnici.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="53" column="19" lean-forward="true" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/update_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-ui/src/Hashtag.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="52" />
           <folding />
         </state>
       </provider>

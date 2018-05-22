@@ -28,7 +28,7 @@ var App =  createClass({
                         return {sentence: 'inserire qui hashtag',
                                 numtweet: numTweet,
                                 numretweet: Retweet,
-                                sentiment: [{ x: 1, y: 5},{ x: 2, y: 4}],
+                                sentiment: [{ x: 1, y: 5},{ x: 2, y: 4}, { x: 3, y: 4}],
                                 unique: [{ x: 12, y: _.random(1, 5) },{ x: 2, y: _.random(1, 10) },{ x: 3, y: _.random(2, 10) },{ x: 4, y: _.random(2, 20) },{ x: 5, y: _.random(2, 15) }],
                                 streampos: [{ a: new Date(1982, 1, 1), b: 105 },
                 { a: new Date(1987, 1, 1), b: 257 },
@@ -94,8 +94,10 @@ var App =  createClass({
 
             return (<div className='App'>
                         <div className='Title'>
-                          <h1 className='title-name'>T(wi)scany</h1>
+                          <h1 className='title-name'>What is our opinion?</h1>
+
                         </div>
+
 
                        <div className='Sidebar' id='mySidebar'>
                             <div className='Sidebar-hashtag'>
@@ -105,23 +107,10 @@ var App =  createClass({
                        </div>
 
                        <div className='Visualisation'>
-                             <div>
-                                  <h4>Questo hashtag compare nei seguenti topic</h4>
-                                  <ChooseTopic />
-                             </div>
+
                                 <br/>
                                 <VisualisationGrid { ...this.props } { ...this.state} funzioneSubmit={this.handleSubmit} funzioneClick={this.handleClick}/>
-                                <br/>
-                                <br/>
-                                <br/>
-                                  <h1>
-                                      In che consiste il progetto?
-                                  </h1>
-                                  <p>
-                                      Hello, how are you? Hello, how are you? Hello, how are you? Hello, how are you?
-                                      Hello, how are you? Hello, how are you? Hello, how are you? Hello, how are you?
-                                      Hello, how are you? Hello, how are you? Hello, how are you? Hello, how are you?
-                                  </p>
+
 
                        </div>
 

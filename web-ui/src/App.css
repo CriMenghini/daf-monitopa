@@ -21,7 +21,7 @@
         vertical-align: middle;
         text-align: center;
         color: white;
-        background: #ff4a4a;
+        background: #3878de;
         font-size: 75px;
         line-height: 74px;
         font-weight: 700;
@@ -31,6 +31,17 @@
         margin: 7px 10px 3px 40px;
         font-family: Libre Baskerville, serif; }
 
+.subtitle-name {
+        margin-top: 20px;
+        vertical-align: middle;
+        color: grey;
+        font-size: 25px;
+        font-weight: 300;
+        margin: 0 5px 24px;
+        padding: 5px;
+        margin: 7px 10px 3px 40px;
+        font-family: Libre Baskerville, serif;
+}
 
 /* Attribute for the sidebar*/
 .Sidebar {height: 100%;
@@ -59,13 +70,14 @@
             align: center;
             }
 
-.tag{background-color: #2350ff;
+.tag{background-color: #3878de;
             display: inline-block;
             margin-left: 0px;
             color:white;
             font-size: 12px;
             border-radius: 4px;
             box-shadow: 1px 1px 1px 0px #888888;
+            font-family: Libre Baskerville, serif;
             }
 
 .tag:hover{background-color: #23efff;
@@ -75,13 +87,13 @@
                 font-size: 13px;
                 }
 
-.search-title {color: white;
-               background: #3100ff;
+.search-title {color: grey;
+               font-size: 20px;
                font-family: Libre Baskerville, serif;
-               margin: 7px 60px 3px 60px;
+               margin: 7px 30px 3px 30px;
 }
 
-input {line-height: 2;
+input-mine {line-height: 2;
         font-size: 13px;
         height: auto;
         margin-left: 0px;
@@ -134,7 +146,7 @@ input {line-height: 2;
 .Visualisation{ margin-left: 230px; /* Same as the width of the sidenav */
                 font-size: 28px; /* Increased text to enable scrolling */
                 padding: 0px 0px;
-                margin-top: 100px;
+                margin-top: 60px;
 }
 
 
@@ -161,37 +173,43 @@ input {line-height: 2;
 
 /* Titolo cards*/
 .NumTweet {font-size: 1.5vw;
-          margin-top: 20px;}
+          margin-top: 20px;
+          font-family: Libre Baskerville, serif;
+          color:grey;}
 
 .NumRetweet {font-size: 1.5vw;
-             margin-top: 20px;}
+             margin-top: 20px;
+             font-family: Libre Baskerville, serif;
+             color:grey;}
 
 .TweetSentiment {font-size: 1.5vw;
-             margin-top: 20px;}
+             margin-top: 20px;
+             font-family: Libre Baskerville, serif;
+             color:grey;}
 
 .UserUnique {font-size: 1.5vw;
-             margin-top: 20px;}
+             margin-top: 20px;
+             font-family: Libre Baskerville, serif;
+             color:grey;}
 
 .TopUsers {font-size: 1.5vw;
-             margin-top: 20px;}
+             margin-top: 20px;
+             font-family: Libre Baskerville, serif;
+             color:grey;}
 
 .StreamTweet {font-size: 1.5vw;
-             margin-top: 20px;}
+             margin-top: 20px;
+             font-family: Libre Baskerville, serif;
+             color:grey;}
 
-.App-logo {
-  animation: App-logo-spin infinite 5s linear;
-  height: 80px;
+/* Progetto*/
+.progetto-titolo {font-family: Libre Baskerville, serif;
+                  color:grey;}
+
+
+.progetto {margin-right: 200px;
+           margin-left: 200px;
+           text-align: justify;
+           font-family: Libre Baskerville, serif;
+           font-size: 1vw;
 }
-
-
-
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-

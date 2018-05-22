@@ -29,7 +29,7 @@ class NumTweet extends React.Component {
   }
 
   getData(percent) {
-    return [{ x: 1, y: percent }, { x: 2, y: 100 - percent }];
+    return [{ x: 1, y: percent }, { x: 1, y: 100 - percent }];
   }
 
   myStopFunction() {
@@ -54,14 +54,14 @@ class NumTweet extends React.Component {
             standalone={false}
             animate={{ duration: 1000 }}
             width={400} height={300}
-            data={[{x: 1, y: this.props.numtweet}, {x:2, y:100-this.props.numtweet}]}
+            data={[{x: 2, y: this.props.numtweet}]}
             innerRadius={120}
             cornerRadius={25}
             labels={() => null}
             style={{
               data: { fill: (d) => {
-                const color = d.y >= 100 ? "green" : "red";
-                return d.x === 1 ? color : "grey";
+                const color = d.y >= 100 ? "red" : "green";
+                return d.x === 1 ? color : "green";
               }
               }
             }}
@@ -72,7 +72,7 @@ class NumTweet extends React.Component {
                 <VictoryLabel
                   textAnchor="middle" verticalAnchor="middle"
                   x={200} y={150}
-                  text={`${Math.round(newProps.percent)}`}
+                  text={`${Math.round(this.props.numtweet)}`}
                   style={{ fontSize: 45 }}
                 />
               );

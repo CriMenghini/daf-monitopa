@@ -1,5 +1,7 @@
 from collections import defaultdict, OrderedDict
 import json
+import preprocessor as p
+p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.MENTION)
 
 
 def top_10_rt(data, name):
@@ -28,7 +30,7 @@ def top_10_rt(data, name):
 
                     if data_small[i]['retweeted_status']['id'] not in find_id:
                         find_id += [data_small[i]['retweeted_status']['id']]
-                        tweets += [(data_small[i]['text'], data_small[i]['retweet_count'],
+                        tweets += [(p.clean(data_small[i]['text']), data_small[i]['retweet_count'],
                                     data_small[i]['retweeted_status']['user']['name'],
                                     data_small[i]['retweeted_status']['user']['id'],
                                     data_small[i]['retweeted_status']['user']['followers_count'],
@@ -37,8 +39,7 @@ def top_10_rt(data, name):
                 if data_small[i]['id'] in top_10:
                     if data_small[i]['id'] not in find_id:
                         find_id += [data_small[i]['id']]
-                        tweets += [(
-                                   data_small[i]['text'], data_small[i]['retweet_count'], data_small[i]['user']['name'],
+                        tweets += [(p.clean(data_small[i]['text']), data_small[i]['retweet_count'], data_small[i]['user']['name'],
                                    data_small[i]['user']['id'], data_small[i]['user']['followers_count'],
                                    data_small[i]['user']['friends_count'])]
         else:
