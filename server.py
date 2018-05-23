@@ -37,6 +37,7 @@ def hello():
     hashtags_dict, dict_hashtag, dict_list_hashtag = tweet_hashtags(hashtags_dict, list_hashtags)
 
     if request.method == 'GET':
+        print ('SONO ANDATO IN GET')
         return render_template('index.html')#flask.send_from_directory('build', 'index.html')#
 
 

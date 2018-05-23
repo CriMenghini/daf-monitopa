@@ -128,7 +128,7 @@ input-mine {line-height: 2;
 
 .Topic{display: inline-block;
             margin-right:0px;
-            margin-top: 10px;
+            margin-top: 61px;
             align: center;
             }
 
@@ -141,6 +141,8 @@ input-mine {line-height: 2;
 
 .topic-btn:hover{background-color: #23efff;
           }
+
+
 
 /* Define the space for the single visualizations*/
 .Visualisation{ margin-left: 230px; /* Same as the width of the sidenav */
