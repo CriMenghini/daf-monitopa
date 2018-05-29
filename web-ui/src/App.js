@@ -18,6 +18,7 @@ import posTweet from './data/positiveTweet.js';
 import negTweet from './data/negativeTweet.js';
 import neuTweet from './data/neutralTweet.js';
 import listaHash from './data/listaHash.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 var _ = require('lodash');
 
@@ -76,6 +77,15 @@ var App =  createClass({
             return (<div className='App'>
                         <div className='Title'>
                           <h1 className='title-name'>What is our opinion?</h1>
+                          <ul class="nav nav-pills">
+                            <li class="nav-item">
+                              <form action="/" >
+                                <button type="submit" className="btn btn-primary" onClick={this.props.scegliAnalisi}>Home Page</button>
+                            </form>
+
+
+                             </li>
+                          </ul>
 
                         </div>
 

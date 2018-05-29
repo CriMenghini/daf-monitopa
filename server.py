@@ -22,6 +22,13 @@ app = Flask(__name__, static_folder='web-ui/build', template_folder='web-ui/buil
 CORS(app)
 
 
+
+#@app.route("/", methods=['GET', 'POST'])
+#def landing_page():
+#    return render_template('home.html')
+
+
+
 @app.route("/api_dati_tweet", methods=['GET', 'POST'])
 def hello():
     data = json.load(open('data/raw/outputfile.json'))

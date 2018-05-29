@@ -1,3 +1,126 @@
+/*Home page*/
+.Home {
+    padding: 6vh;
+    height: 100%;
+    background-color: #b61924;
+
+
+    z-index:1;
+}
+.titolo-home{color: white;
+            margin-top: 0vw;
+            margin-bottom: 5vw;
+            z-index:10;
+            position: relative;
+            text-align: center;
+}
+
+
+.prova-canvas{
+    position: absolute;
+	top: 40%;
+	right: 50%;
+	transform: translate(50%,-50%);
+	color: $text;
+	width: 80%;
+	padding: 2em 3em;
+	background: rgba(0, 0, 0, 0.1);
+	text-shadow: 0px 0px 0px #131415;
+	font-family: 'Open Sans', sans-serif;
+    z-index:1;
+    text-align:center;
+}
+
+.canvas-due{
+    position: absolute;
+	top: 80%;
+	right: 50%;
+	transform: translate(50%,-50%);
+	color: $text;
+	width: 80%;
+	padding: 2em 3em;
+	background: rgba(0, 0, 0, 0.1);
+	text-shadow: 0px 0px 0px #131415;
+	font-family: 'Open Sans', sans-serif;
+    z-index:1;
+    text-align:center;
+}
+
+
+
+.canvas-progetto-2{
+    position: absolute;
+	top: 120%;
+	right: 50%;
+	transform: translate(50%,-50%);
+	color: $text;
+	width: 80%;
+	padding: 2em 3em;
+	background: rgba(0, 0, 0, 0.1);
+	text-shadow: 0px 0px 0px #131415;
+	font-family: 'Open Sans', sans-serif;
+    z-index:1;
+    text-align:center;
+}
+
+.canvas-progetto{
+    position: absolute;
+	top: 160%;
+	right: 50%;
+	transform: translate(50%,-50%);
+	color: $text;
+	width: 80%;
+	padding: 2em 3em;
+	background: rgba(0, 0, 0, 0.1);
+	text-shadow: 0px 0px 0px #131415;
+	font-family: 'Open Sans', sans-serif;
+    z-index:1;
+    text-align:center;
+}
+
+.canvas-contribuisci{
+    position: absolute;
+	top: 200%;
+	right: 50%;
+	transform: translate(50%,-50%);
+	color: $text;
+	width: 80%;
+	padding: 2em 3em;
+	background: rgba(0, 0, 0, 0.1);
+	text-shadow: 0px 0px 0px #131415;
+	font-family: 'Open Sans', sans-serif;
+    z-index:1;
+    text-align:center;
+}
+
+
+.title-over-plot {color: #262626;
+        margin-top: 0vh;
+        position:relative;
+        text-align: center;
+}
+
+
+.btn-hashtag{
+    margin-top: 10vh;
+    color: #B22222;
+    background-color: #DCDCDC;
+    border-color: #B22222;
+    border-width: 2px;
+    margin-right: 2vw;
+    width: 15vw;
+    height: 8vh;
+    position:relative;
+}
+
+.tableButton{
+    position:relative;
+    text-align:center;
+}
+
+
+/*App*/
+
 .App {
   text-align: center;
   width: 100%;
@@ -215,3 +338,5 @@ input-mine {line-height: 2;
            font-family: Libre Baskerville, serif;
            font-size: 1vw;
 }
+
+

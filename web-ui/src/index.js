@@ -10,35 +10,33 @@ import Hashtag  from './Hashtag';
 import SearchBar from './SearchBar';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import HomePage from './HomePage';
 
 
 
-var CheckBox = createClass({
+var LandingPage = createClass({
 
     getInitialState: function (){
-        return {checked: true}
+        return {choice: false}
     },
 
 
-    handleChecked: function (){
-        this.setState({checked: !this.state.checked})
+    handleChoice: function (){
+        this.setState({choice: !this.state.choice})
     },
+
+
 
 
     render: function (){
 
-            var msg;
-            if (this.state.checked){
-                msg = 'checked'
+            if (this.state.choice){
+                return (<App {... this.props} {... this.state} scegliAnalisi={this.handleChoice}/>)
             }
-            else {msg = 'unchecked'}
+            else {
+                return (<HomePage {... this.props} {... this.state} scegliAnalisi={this.handleChoice}/>)
+            };
 
-        return (
-            <div>
-                <input type='checkbox' onChange={this.handleChecked} defaultChecked={this.state.checked}/>
-                <h3>Checkbox is {msg}</h3>
-            </div>
-        );
 
     }
 
@@ -47,5 +45,5 @@ var CheckBox = createClass({
 
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<LandingPage />, document.getElementById('root'));
 registerServiceWorker();
