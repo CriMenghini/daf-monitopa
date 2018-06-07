@@ -54,9 +54,6 @@ def hello():
     for i, j in co_hash_occ.items():
         counter_hash[i] = sorted(collections.Counter(j).items(), key=operator.itemgetter(1), reverse=True)
 
-    lista_diz_hash = []
-    for i, j in enumerate(counter_hash['elezioni'][:10]):
-        lista_diz_hash += [{'x': i + 1, 'y': j[1], 'label': '#' + j[0]}]
 
     if request.method == 'GET':
         print ('SONO ANDATO IN GET')
@@ -76,7 +73,12 @@ def hello():
         list_vector_pie = sentiment_tweet(lista_tweet, id_sentiment)
 
         # Top users
-        list_user_to_plot = top_users(data, lista_tweet)
+        #list_user_to_plot = top_users(data, lista_tweet)
+        lista_diz_hash = []
+        for i, j in enumerate(counter_hash[hashtag][:10]):
+            lista_diz_hash += [{'x': i + 1, 'y': j[1], 'label': '#' + j[0]}]
+
+        print (lista_diz_hash)
 
         # Stream tweet
         sent_sub_tweet = {i: id_sentiment[i] for i in lista_tweet}
@@ -87,6 +89,7 @@ def hello():
 
         # Utenti unici
         list_unici_utenti = unique_users(data, lista_tweet)
+
 
         task = {
             'numTweet': num_tweet,
