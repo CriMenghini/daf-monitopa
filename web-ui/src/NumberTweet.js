@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { VictoryBar, VictoryAnimation, VictoryBrushLine, VictoryChart, VictoryLine, VictoryLabel, VictoryPie} from 'victory';
 
+
+
 class NumTweet extends React.Component {
   constructor() {
     super();
@@ -37,19 +39,11 @@ class NumTweet extends React.Component {
     }
 
 
-//  componentWillReceiveProps(nextProps){
-//	if(nextProps.unique){
-//		this.setState({
-//		    percent: nextProps.percent,
-//			recData: nextProps.unique
-//		})
-//	}
-//}
 
   render() {
     return (
       <div>
-        <svg viewBox="0 0 400 400" width="100%" height="100%">
+        <svg viewBox="-50 -40 500 350" width="100%" height="100%" id='svgprova'>
           <VictoryPie
             standalone={false}
             animate={{ duration: 1000 }}

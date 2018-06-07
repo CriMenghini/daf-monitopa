@@ -104,7 +104,7 @@ var HomePage = createClass ({
                         <br />
                         <br />
                         <div className='canvas-progetto-2'>
-                            <h2 className='title-over-plot' id='progetto'> Chi siamo </h2>
+                            <h2 className='title-over-plot' id='chi-siamo'> Chi siamo </h2>
                             <p>
                             Scrivi Scrivi  Scrivi  Scrivi  Scrivi  Scrivi  Scrivi
                             Scrivi  Scrivi  Scrivi  Scrivi  Scrivi  Scrivi Scrivi

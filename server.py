@@ -15,7 +15,9 @@ import preprocessor as p
 p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.MENTION)
 import operator
 import pandas as pd
+import collections
 from src.update_page import *
+import operator
 
 
 app = Flask(__name__, static_folder='web-ui/build', template_folder='web-ui/build')
@@ -42,6 +44,19 @@ def hello():
     list_hashtags, non_set, hashtags_dict, count_hashtags = get_list_significant_hashtag(dictionary_tweet, threshold=5)
     lista_tweet_per_hash = tweets_hashtag(hashtags_dict)
     hashtags_dict, dict_hashtag, dict_list_hashtag = tweet_hashtags(hashtags_dict, list_hashtags)
+    co_hash_occ = defaultdict(list)
+    for i,j in hashtags_dict.items():
+        for el in j:
+            j.remove(el)
+            co_hash_occ[el] += j
+
+    counter_hash = {}
+    for i, j in co_hash_occ.items():
+        counter_hash[i] = sorted(collections.Counter(j).items(), key=operator.itemgetter(1), reverse=True)
+
+    lista_diz_hash = []
+    for i, j in enumerate(counter_hash['elezioni'][:10]):
+        lista_diz_hash += [{'x': i + 1, 'y': j[1], 'label': '#' + j[0]}]
 
     if request.method == 'GET':
         print ('SONO ANDATO IN GET')
@@ -81,7 +96,7 @@ def hello():
             'StreamPos': stream_tweet(data,lista_tweet_pos),
             'StreamNeg': stream_tweet(data,lista_tweet_neg),
             'StreamNeu': stream_tweet(data,lista_tweet_neu),
-            'dataSet': list_user_to_plot}
+            'dataSet': lista_diz_hash}
         return jsonify(task)
 
 if __name__ == "__main__":

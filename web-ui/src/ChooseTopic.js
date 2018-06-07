@@ -14,6 +14,7 @@ var ChooseTopic = createClass({
     render: function (){
         return (<div className='TopicContainer'>
                     <h3 className='Topic'>Choose</h3>
+                    <h3 className='Topic'>{this.props.sentence}</h3>
                     <BoardTopic  { ...this.props } { ...this.state} />
                 </div>)
     }

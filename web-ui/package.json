@@ -18,13 +18,18 @@
     "jquery": "^3.3.1",
     "lodash": "^4.17.10",
     "particles.js": "^2.0.0",
+    "popper.js": "^1.14.3",
     "react": "^16.4.0",
     "react-bootstrap": "^0.32.1",
+    "react-collapse": "^4.0.3",
     "react-dom": "^16.4.0",
     "react-flexbox-grid": "^2.1.0",
+    "react-motion": "^0.5.2",
     "react-particles-js": "^2.2.0",
     "react-scripts": "1.1.4",
     "reactstrap": "^6.0.1",
+    "save-svg-as-png": "^1.4.4",
+    "tether": "^1.4.4",
     "victory": "^0.26.0"
   },
   "scripts": {
