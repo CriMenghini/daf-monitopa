@@ -2,6 +2,8 @@ from collections import defaultdict, OrderedDict
 import json
 import preprocessor as p
 p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.MENTION)
+import collections
+import operator
 
 
 def top_10_rt(data, name):
@@ -101,5 +103,19 @@ def retweet_based_on_topic(topic, class_tweet, data):
                 if data[i]['retweeted_status']['id'] in id_tweets:
                     data_hashtag += [data[i]]
             except: continue
-    
-    top_10_rt(data_hashtag, topic)
+
+    list_retweet = top_10_rt(data_hashtag, topic)
+    return list_retweet
+
+def co_occurrences_tweet(hashtags_dict):
+    co_hash_occ = defaultdict(list)
+    for i, j in hashtags_dict.items():
+        for el in j:
+            j.remove(el)
+            co_hash_occ[el] += j
+
+    counter_hash = {}
+    for i, j in co_hash_occ.items():
+        counter_hash[i] = sorted(collections.Counter(j).items(), key=operator.itemgetter(1), reverse=True)
+
+    return counter_hash

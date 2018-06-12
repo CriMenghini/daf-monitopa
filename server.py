@@ -10,54 +10,86 @@ import copy
 import os
 import collections
 import pickle
-import operator
 import preprocessor as p
 p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.MENTION)
-import operator
 import pandas as pd
 import collections
 from src.update_page import *
-import operator
+from collections import defaultdict
 
 
 app = Flask(__name__, static_folder='web-ui/build', template_folder='web-ui/build')
 CORS(app)
 
 
+########################## Hashtag #######################
+data = json.load(open('data/raw/outputfile.json'))
+with open('data/raw/aa.pkl', 'rb') as f:
+    id_sentiment = pickle.load(f)
 
-#@app.route("/", methods=['GET', 'POST'])
-#def landing_page():
-#    return render_template('home.html')
+# Get info about tweets (@TODO salva questi risultati in file, non calcolarli ad ogni request)
+dictionary_tweet = tweet_info(data)
+list_hashtags, non_set, hashtags_dict, count_hashtags = get_list_significant_hashtag(dictionary_tweet, threshold=5)
+lista_tweet_per_hash = tweets_hashtag(hashtags_dict)
+hashtags_dict, dict_hashtag, dict_list_hashtag = tweet_hashtags(hashtags_dict, list_hashtags)
+list_tweet = list(set([k for i, j in dict_hashtag.items() for k in j]))
 
-
-
-@app.route("/api_dati_tweet", methods=['GET', 'POST'])
-def hello():
-    data = json.load(open('data/raw/outputfile.json'))
-    with open('data/raw/aa.pkl', 'rb') as f:
-        id_sentiment = pickle.load(f)
-
-    #print (request.method)
-
-    # Get info about tweets (@TODO salva questi risultati in file, non calcolarli ad ogni request)
-    dictionary_tweet = tweet_info(data)
-    list_hashtags, non_set, hashtags_dict, count_hashtags = get_list_significant_hashtag(dictionary_tweet, threshold=5)
-    lista_tweet_per_hash = tweets_hashtag(hashtags_dict)
-    hashtags_dict, dict_hashtag, dict_list_hashtag = tweet_hashtags(hashtags_dict, list_hashtags)
-    co_hash_occ = defaultdict(list)
-    for i,j in hashtags_dict.items():
-        for el in j:
-            j.remove(el)
-            co_hash_occ[el] += j
-
-    counter_hash = {}
-    for i, j in co_hash_occ.items():
-        counter_hash[i] = sorted(collections.Counter(j).items(), key=operator.itemgetter(1), reverse=True)
+counter_hash = co_occurrences_tweet(hashtags_dict)
+############################################################################################
 
 
+
+
+####################### Topics #######################
+tuples_weights = edges(dict_list_hashtag, occurrences=False, jaccard=True)
+G = graph_hashtags(tuples_weights)
+
+# Assign id
+id_hash = {i: j for i, j in enumerate(list_hashtags)}
+hash_id = {j: i for i, j in id_hash.items()}
+
+dimensionality_reduct, num_components = dimensionality_reduction(G)
+clusters = clustering(dimensionality_reduct)
+class_hash, class_num_hash = create_cluster(G, clusters)
+
+set_tweets_class, set_hash_class = tweet_in_class(class_hash, class_num_hash, dict_hashtag, hashtags_dict)
+class_of_tweets, dict_tweet_prop_class, tweet_belongs_to = assign_tweet(list_tweet, hashtags_dict, class_num_hash,
+                                                                        class_hash)
+#####################################################################
+
+
+
+### Per prendere gli id dei tweet del topic devo matchare nome e numero topic
+output = []
+for cluster, list_hash in class_hash.items():
+    dictionary = {}
+    dictionary['topic'] = int(cluster)
+    dict_ha = {i: count_hashtags[i] for i in list_hash}
+    dictionary['hashtags'] = [(i, count_hashtags[i]) for i in sorted(dict_ha, key=dict_ha.get, reverse=True)]
+    dictionary['number_tweets'] = len(set(class_of_tweets[cluster]))
+
+    output += [dictionary]
+
+dict_topic_hash = defaultdict(list)
+for i in output:
+    dict_topic_hash[i['topic']] += [j for j in i['hashtags']]
+
+name_topic = {i: j[0] for i, j in dict_topic_hash.items()}
+topic_nome = {j:i for i,j in name_topic.items()}
+print ('ECOOOOOOOO')
+#######################################################################
+
+
+
+
+
+
+
+@app.route("/hashtag_api", methods=['GET', 'POST'])
+def hashtag_api():
     if request.method == 'GET':
         print ('SONO ANDATO IN GET')
-        return render_template('index.html')#flask.send_from_directory('build', 'index.html')#
+        return render_template('index.html')
 
 
     else:
@@ -93,7 +125,57 @@ def hello():
 
         task = {
             'numTweet': num_tweet,
-            'NumRetweet':  retweet_based_on_hashtag(hashtag, dict_hashtag, data),
+            'NumRetweet': retweet_based_on_hashtag(hashtag, dict_hashtag, data),
+            'Sentiment':list_vector_pie,
+            'Unique': list_unici_utenti,
+            'StreamPos': stream_tweet(data,lista_tweet_pos),
+            'StreamNeg': stream_tweet(data,lista_tweet_neg),
+            'StreamNeu': stream_tweet(data,lista_tweet_neu),
+            'dataSet': lista_diz_hash}
+        return jsonify(task)
+
+
+@app.route("/topic_api", methods=['GET', 'POST'])
+def topic_api():
+    if request.method == 'GET':
+        print ('SONO ANDATO IN GET')
+        return render_template('index.html')
+
+
+    else:
+
+        hashtag = request.get_json()["selectedHashtag"]
+        print (hashtag)
+
+        # Compute the number of tweets for the hashtag
+        lista_tweet = class_of_tweets[0]
+        num_tweet = len(set(lista_tweet))
+
+        # Get the sentiment of tweets
+        list_vector_pie = sentiment_tweet(lista_tweet, id_sentiment)
+
+        # Top users
+        #list_user_to_plot = top_users(data, lista_tweet)
+        lista_diz_hash = []
+        for i, j in enumerate(dict_topic_hash[0][:10]):
+            lista_diz_hash += [{'x': i +1, 'y': j[1], 'label': '#' + j[0]}]
+
+        print (lista_diz_hash)
+
+        # Stream tweet
+        sent_sub_tweet = {i: id_sentiment[i] for i in lista_tweet}
+        lista_tweet_pos = [i for i,j in sent_sub_tweet.items() if j=='positive']
+        lista_tweet_neg = [i for i,j in sent_sub_tweet.items() if j=='negative']
+        lista_tweet_neu = [i for i,j in sent_sub_tweet.items() if j=='neutral']
+
+
+        # Utenti unici
+        list_unici_utenti = unique_users(data, lista_tweet)
+
+
+        task = {
+            'numTweet': num_tweet,
+            'NumRetweet': retweet_based_on_topic(0, class_of_tweets, data),
             'Sentiment':list_vector_pie,
             'Unique': list_unici_utenti,
             'StreamPos': stream_tweet(data,lista_tweet_pos),

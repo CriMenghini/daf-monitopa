@@ -27,14 +27,14 @@ var _ = require('lodash');
 
 
 
-const API = 'http://127.0.0.1:5000/hashtag_api';
+const API = 'http://127.0.0.1:5000/topic_api';
 
 
-var App =  createClass({
+var Topic =  createClass({
 
 
           getInitialState: function (){
-                        return {sentence: "Seleziona l'hashtag da analizzare",
+                        return {sentence: "Seleziona il topic da analizzare",
 
                                 hashtags: listaHash,
                                 numtweet: numTweet,
@@ -120,6 +120,7 @@ var App =  createClass({
 
                        <div className='Visualisation'>
                                 <ChooseTopic { ...this.props } { ...this.state} funzioneSubmit={this.handleSubmit} funzioneClick={this.handleClick}/>
+
                                 <br/>
 
                                 <VisualisationGrid { ...this.props } { ...this.state} funzioneSubmit={this.handleSubmit} funzioneClick={this.handleClick}/>
@@ -132,7 +133,7 @@ var App =  createClass({
 
                                 });
 
-export default App;
+export default Topic;
 
 
 

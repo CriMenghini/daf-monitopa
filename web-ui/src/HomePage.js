@@ -67,8 +67,8 @@ var HomePage = createClass ({
 
                             <div className='tableButton'>
                             <form action="/api_dati_tweet" method="get">
-                                <button type="submit" className="btn btn-outline-secondary" onClick={this.props.scegliAnalisi}>Hashtag</button>
-                                <button type="submit" className="btn btn-outline-secondary" onClick={this.props.scegliAnalisi}>Topic</button>
+                                <button type="submit" className="btn btn-outline-secondary" onClick={this.props.scegliAnalisiHash}>Hashtag</button>
+                                <button type="submit" className="btn btn-outline-secondary" onClick={this.props.scegliAnalisiTopic}>Topic</button>
                             </form>
                             </div>
 

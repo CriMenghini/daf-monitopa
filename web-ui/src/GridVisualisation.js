@@ -64,7 +64,6 @@ var VisualisationGrid = createClass({
                                     Numero di Tweet
                                     <NumTweet { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick}/>
 
-                                    <button onClick={this.handleDownload}></button>
 
                                     <div>
                                     <Button color="secondary" onClick={this.toggle1} style={{ marginTop:'0px',marginBottom: '1rem' }}>Toggle</Button>
