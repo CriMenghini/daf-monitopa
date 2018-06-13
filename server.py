@@ -14,9 +14,12 @@ import preprocessor as p
 p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.MENTION)
 import pandas as pd
 import collections
+from src.preprocessing import *
 from src.update_page import *
 from collections import defaultdict
-
+from keras.models import model_from_json
+from keras.preprocessing import sequence
+import numpy as np
 
 app = Flask(__name__, static_folder='web-ui/build', template_folder='web-ui/build')
 CORS(app)
@@ -83,10 +86,33 @@ with open('web-ui/src/data/name_topic.js', 'w') as outfile:
 
 
 ############################## Sentiment model ######################################
+# load json and create model
+json_file = open('src/model.json', 'r')
+loaded_model_json = json_file.read()
+json_file.close()
+loaded_model = model_from_json(loaded_model_json)
+# load weights into new model
+loaded_model.load_weights("src/model.h5")
+print("Loaded model from disk")
+
+#################################### Pre-process Tweets ################################
+index_vocabolario = {idx:w for w, idx in vocabolario_index_twitter.items()}
+
+id_text_pad_list = []
+for i in range(len(data)):
+    try:
+        id_text_pad_list += [(data[i]['id'], replace_word_index_twitter((substitute_label((normalize(p.tokenize(data[i]['retweeted_status']['text']))).split())).split()))]
+    except:
+        id_text_pad_list += [(data[i]['id'], replace_word_index_twitter((substitute_label((normalize(p.tokenize(data[i]['text']))).split())).split()))]
 
 
-
-
+array_pad = np.array([j for i,j in id_text_pad_list])
+padding = sequence.pad_sequences(array_pad, maxlen=40, padding='post')
+prediction = loaded_model.predict_classes(padding)
+pred = ['negative' if i==0 else 'positive' for i in prediction ]
+dict_id_sentiment = {}
+for i,j in enumerate(array_pad):
+    dict_id_sentiment[id_text_pad_list[i][0]] = pred[i]
 
 
 
@@ -107,8 +133,8 @@ def hashtag_api():
         num_tweet = len(set(lista_tweet))
 
         # Get the sentiment of tweets
-        list_vector_pie = sentiment_tweet(lista_tweet, id_sentiment)
-
+        list_vector_pie = sentiment_tweet(lista_tweet, dict_id_sentiment)#id_sentiment)
+        print (list_vector_pie)
         # Top users
         #list_user_to_plot = top_users(data, lista_tweet)
         lista_diz_hash = []
@@ -118,10 +144,10 @@ def hashtag_api():
         print (lista_diz_hash)
 
         # Stream tweet
-        sent_sub_tweet = {i: id_sentiment[i] for i in lista_tweet}
+        sent_sub_tweet = {i: dict_id_sentiment[i] for i in lista_tweet}
         lista_tweet_pos = [i for i,j in sent_sub_tweet.items() if j=='positive']
         lista_tweet_neg = [i for i,j in sent_sub_tweet.items() if j=='negative']
-        lista_tweet_neu = [i for i,j in sent_sub_tweet.items() if j=='neutral']
+        #lista_tweet_neu = [i for i,j in sent_sub_tweet.items() if j=='neutral']
 
 
         # Utenti unici
@@ -135,7 +161,7 @@ def hashtag_api():
             'Unique': list_unici_utenti,
             'StreamPos': stream_tweet(data,lista_tweet_pos),
             'StreamNeg': stream_tweet(data,lista_tweet_neg),
-            'StreamNeu': stream_tweet(data,lista_tweet_neu),
+            #'StreamNeu': stream_tweet(data,lista_tweet_neu),
             'dataSet': lista_diz_hash}
         return jsonify(task)
 
@@ -157,7 +183,7 @@ def topic_api():
         num_tweet = len(set(lista_tweet))
 
         # Get the sentiment of tweets
-        list_vector_pie = sentiment_tweet(lista_tweet, id_sentiment)
+        list_vector_pie = sentiment_tweet(lista_tweet, dict_id_sentiment)
 
         # Top users
         #list_user_to_plot = top_users(data, lista_tweet)
@@ -168,10 +194,10 @@ def topic_api():
         print (lista_diz_hash)
 
         # Stream tweet
-        sent_sub_tweet = {i: id_sentiment[i] for i in lista_tweet}
+        sent_sub_tweet = {i: dict_id_sentiment[i] for i in lista_tweet}
         lista_tweet_pos = [i for i,j in sent_sub_tweet.items() if j=='positive']
         lista_tweet_neg = [i for i,j in sent_sub_tweet.items() if j=='negative']
-        lista_tweet_neu = [i for i,j in sent_sub_tweet.items() if j=='neutral']
+        #lista_tweet_neu = [i for i,j in sent_sub_tweet.items() if j=='neutral']
 
 
         # Utenti unici
@@ -185,7 +211,7 @@ def topic_api():
             'Unique': list_unici_utenti,
             'StreamPos': stream_tweet(data,lista_tweet_pos),
             'StreamNeg': stream_tweet(data,lista_tweet_neg),
-            'StreamNeu': stream_tweet(data,lista_tweet_neu),
+            #'StreamNeu': stream_tweet(data,lista_tweet_neu),
             'dataSet': lista_diz_hash}
         return jsonify(task)
 

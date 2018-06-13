@@ -42,7 +42,7 @@ var App =  createClass({
                                 unique: UniqueUser,
                                 streampos: posTweet,
                                 streamneg: negTweet,
-                                streamneu: neuTweet,
+                                //streamneu: neuTweet,
                                 DataSet:[{'x': 1, 'y': 100, 'label': '#ciao'}, {'x': 2, 'y': 108, 'label': "#hello"}, {'x': 3, 'y': 50, 'label': '#howareyou'}, {'x': 4, 'y': 23, 'label': '#renzi'}, {'x': 5, 'y': 22, 'label': '#pa'}, {'x': 6, 'y': 4, 'label': '#ca'}, {'x': 7, 'y': 3, 'label': '#oioio'}, {'x': 8, 'y': 2, 'label': '#hotmail'}, {'x': 9, 'y': 2, 'label': '#popopo'}, {'x': 10, 'y': 2, 'label': "#casa"}]
               }},
 

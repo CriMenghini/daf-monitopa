@@ -56,16 +56,10 @@ class TimeSeries extends React.Component {
               x="a"
               y="b"
             />
-            <VictoryLine animate={{ duration: 2000 }}
-              style={{
-                data: { stroke: "orange"},
-              }}
-              data={this.parseDate(this.props.streamneu)}
-              x="a"
-              y="b"
-            />
+
 
           </VictoryChart>
+
           <VictoryChart
             padding={{ top: 0, left: 50, right: 50, bottom: 30 }}
             width={600} height={100} scale={{ x: "time" }}
@@ -97,14 +91,7 @@ class TimeSeries extends React.Component {
               x="a"
               y="b"
             />
-            <VictoryLine animate={{ duration: 1000 }}
-              style={{
-                data: { stroke: "orange" },
-              }}
-              data={this.parseDate(this.props.streamneu)}
-              x="a"
-              y="b"
-            />
+
           </VictoryChart>
       </div>
     );
