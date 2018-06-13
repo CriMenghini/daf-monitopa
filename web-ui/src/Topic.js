@@ -5,7 +5,7 @@ import createClass from 'create-react-class';
 import BoardHashtag from './Board';
 import Hashtag  from './Hashtag';
 import SearchBar from './SearchBar';
-import Menu from './Menu';
+import SearchBarTopic from './SearchBarTopics';
 import { Container, Row, Col } from 'reactstrap';
 import VisualisationGrid from './GridVisualisation';
 import TopUsers from './TopUsers';
@@ -113,7 +113,7 @@ var Topic =  createClass({
 
                        <div className='Sidebar' id='mySidebar'>
                             <div className='Sidebar-hashtag'>
-                              <SearchBar { ...this.props } { ...this.state} funzioneSubmit={this.handleSubmit} funzioneClick={this.handleClick}/>
+                              <SearchBarTopic { ...this.props } { ...this.state} funzioneSubmit={this.handleSubmit} funzioneClick={this.handleClick}/>
                               <br/>
                             </div>
                        </div>

@@ -58,7 +58,7 @@ class TimeSeries extends React.Component {
             />
             <VictoryLine animate={{ duration: 2000 }}
               style={{
-                data: { stroke: "green"},
+                data: { stroke: "orange"},
               }}
               data={this.parseDate(this.props.streamneu)}
               x="a"

@@ -36,10 +36,6 @@ list_tweet = list(set([k for i, j in dict_hashtag.items() for k in j]))
 
 counter_hash = co_occurrences_tweet(hashtags_dict)
 ############################################################################################
-
-
-
-
 ####################### Topics #######################
 tuples_weights = edges(dict_list_hashtag, occurrences=False, jaccard=True)
 G = graph_hashtags(tuples_weights)
@@ -55,9 +51,6 @@ class_hash, class_num_hash = create_cluster(G, clusters)
 set_tweets_class, set_hash_class = tweet_in_class(class_hash, class_num_hash, dict_hashtag, hashtags_dict)
 class_of_tweets, dict_tweet_prop_class, tweet_belongs_to = assign_tweet(list_tweet, hashtags_dict, class_num_hash,
                                                                         class_hash)
-#####################################################################
-
-
 
 ### Per prendere gli id dei tweet del topic devo matchare nome e numero topic
 output = []
@@ -74,10 +67,22 @@ dict_topic_hash = defaultdict(list)
 for i in output:
     dict_topic_hash[i['topic']] += [j for j in i['hashtags']]
 
-name_topic = {i: j[0] for i, j in dict_topic_hash.items()}
+name_topic = {i: j[0][0] for i, j in dict_topic_hash.items()}
+print (name_topic)
 topic_nome = {j:i for i,j in name_topic.items()}
-print ('ECOOOOOOOO')
-#######################################################################
+
+with open('web-ui/src/data/name_topic.js', 'w') as outfile:
+    outfile.write('export default [')
+    max_name = len(name_topic)
+    for idx, t in enumerate(list(topic_nome.keys())):
+        if idx != max_name - 1:
+            outfile.write("'"+t+"'"+',\n')
+        else:
+            outfile.write("'"+t+"'" + ']')
+    #json.dump(name_topic, outfile)
+
+
+############################## Sentiment model ######################################
 
 
 
@@ -148,7 +153,7 @@ def topic_api():
         print (hashtag)
 
         # Compute the number of tweets for the hashtag
-        lista_tweet = class_of_tweets[0]
+        lista_tweet = class_of_tweets[topic_nome[hashtag]]
         num_tweet = len(set(lista_tweet))
 
         # Get the sentiment of tweets
@@ -157,7 +162,7 @@ def topic_api():
         # Top users
         #list_user_to_plot = top_users(data, lista_tweet)
         lista_diz_hash = []
-        for i, j in enumerate(dict_topic_hash[0][:10]):
+        for i, j in enumerate(dict_topic_hash[topic_nome[hashtag]][:10]):
             lista_diz_hash += [{'x': i +1, 'y': j[1], 'label': '#' + j[0]}]
 
         print (lista_diz_hash)
@@ -171,11 +176,11 @@ def topic_api():
 
         # Utenti unici
         list_unici_utenti = unique_users(data, lista_tweet)
-
+        print (retweet_based_on_topic(topic_nome[hashtag], class_of_tweets, data))
 
         task = {
             'numTweet': num_tweet,
-            'NumRetweet': retweet_based_on_topic(0, class_of_tweets, data),
+            'NumRetweet': retweet_based_on_topic(topic_nome[hashtag], class_of_tweets, data),
             'Sentiment':list_vector_pie,
             'Unique': list_unici_utenti,
             'StreamPos': stream_tweet(data,lista_tweet_pos),

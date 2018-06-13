@@ -5,7 +5,6 @@ import createClass from 'create-react-class';
 import BoardHashtag from './Board';
 import Hashtag  from './Hashtag';
 import SearchBar from './SearchBar';
-import Menu from './Menu';
 import { Container, Row, Col } from 'reactstrap';
 import VisualisationGrid from './GridVisualisation';
 import TopUsers from './TopUsers';
