@@ -6,7 +6,7 @@ import { ButtonToolbar } from 'react-bootstrap';
 //import { Button } from 'reactstrap';
 import Particles from 'react-particles-js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/custom.css';
+//import 'bootstrap/dist/css/custom.css';
 
 var HomePage = createClass ({
 

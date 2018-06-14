@@ -19,7 +19,7 @@ import neuTweet from './data/neutralTweet.js';
 import listaHash from './data/listaHash.js';
 import {Collapse} from 'react-collapse';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/custom.css';
+//import 'bootstrap/dist/css/custom.css';
 import Particles from 'react-particles-js';
 //import 'saveSvgAsPng.js';
 var _ = require('lodash');
