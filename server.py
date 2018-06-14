@@ -114,106 +114,110 @@ dict_id_sentiment = {}
 for i,j in enumerate(array_pad):
     dict_id_sentiment[id_text_pad_list[i][0]] = pred[i]
 
+@app.route("/", methods=['GET'])
+def landing():
+    if request.method == 'GET':
+        print('SONO ANDATO IN GET')
+        return render_template('index.html')
 
-
-@app.route("/hashtag_api", methods=['GET', 'POST'])
+@app.route("/hashtag_api", methods=['POST'])
 def hashtag_api():
-    if request.method == 'GET':
-        print ('SONO ANDATO IN GET')
-        return render_template('index.html')
+    #if request.method == 'GET':
+    #    print ('SONO ANDATO IN GET')
+    #    return render_template('index.html')
 
 
-    else:
+    #else:
 
-        hashtag = request.get_json()["selectedHashtag"]
-        print (hashtag)
+    hashtag = request.get_json()["selectedHashtag"]
+    print (hashtag)
 
-        # Compute the number of tweets for the hashtag
-        lista_tweet = lista_tweet_per_hash[hashtag]
-        num_tweet = len(set(lista_tweet))
+    # Compute the number of tweets for the hashtag
+    lista_tweet = lista_tweet_per_hash[hashtag]
+    num_tweet = len(set(lista_tweet))
 
-        # Get the sentiment of tweets
-        list_vector_pie = sentiment_tweet(lista_tweet, dict_id_sentiment)#id_sentiment)
-        print (list_vector_pie)
-        # Top users
-        #list_user_to_plot = top_users(data, lista_tweet)
-        lista_diz_hash = []
-        for i, j in enumerate(counter_hash[hashtag][:10]):
-            lista_diz_hash += [{'x': i + 1, 'y': j[1], 'label': '#' + j[0]}]
+    # Get the sentiment of tweets
+    list_vector_pie = sentiment_tweet(lista_tweet, dict_id_sentiment)#id_sentiment)
+    print (list_vector_pie)
+    # Top users
+    #list_user_to_plot = top_users(data, lista_tweet)
+    lista_diz_hash = []
+    for i, j in enumerate(counter_hash[hashtag][:10]):
+        lista_diz_hash += [{'x': i + 1, 'y': j[1], 'label': '#' + j[0]}]
 
-        print (lista_diz_hash)
+    print (lista_diz_hash)
 
-        # Stream tweet
-        sent_sub_tweet = {i: dict_id_sentiment[i] for i in lista_tweet}
-        lista_tweet_pos = [i for i,j in sent_sub_tweet.items() if j=='positive']
-        lista_tweet_neg = [i for i,j in sent_sub_tweet.items() if j=='negative']
-        #lista_tweet_neu = [i for i,j in sent_sub_tweet.items() if j=='neutral']
-
-
-        # Utenti unici
-        list_unici_utenti = unique_users(data, lista_tweet)
+    # Stream tweet
+    sent_sub_tweet = {i: dict_id_sentiment[i] for i in lista_tweet}
+    lista_tweet_pos = [i for i,j in sent_sub_tweet.items() if j=='positive']
+    lista_tweet_neg = [i for i,j in sent_sub_tweet.items() if j=='negative']
+    #lista_tweet_neu = [i for i,j in sent_sub_tweet.items() if j=='neutral']
 
 
-        task = {
-            'numTweet': num_tweet,
-            'NumRetweet': retweet_based_on_hashtag(hashtag, dict_hashtag, data),
-            'Sentiment':list_vector_pie,
-            'Unique': list_unici_utenti,
-            'StreamPos': stream_tweet(data,lista_tweet_pos),
-            'StreamNeg': stream_tweet(data,lista_tweet_neg),
-            #'StreamNeu': stream_tweet(data,lista_tweet_neu),
-            'dataSet': lista_diz_hash}
-        return jsonify(task)
+    # Utenti unici
+    list_unici_utenti = unique_users(data, lista_tweet)
 
 
-@app.route("/topic_api", methods=['GET', 'POST'])
+    task = {
+        'numTweet': num_tweet,
+        'NumRetweet': retweet_based_on_hashtag(hashtag, dict_hashtag, data),
+        'Sentiment':list_vector_pie,
+        'Unique': list_unici_utenti,
+        'StreamPos': stream_tweet(data,lista_tweet_pos),
+        'StreamNeg': stream_tweet(data,lista_tweet_neg),
+        #'StreamNeu': stream_tweet(data,lista_tweet_neu),
+        'dataSet': lista_diz_hash}
+    return jsonify(task)
+
+
+@app.route("/topic_api", methods=['POST'])
 def topic_api():
-    if request.method == 'GET':
-        print ('SONO ANDATO IN GET')
-        return render_template('index.html')
+    #if request.method == 'GET':
+    #    print ('SONO ANDATO IN GET')
+    #    return render_template('index.html')
 
 
-    else:
+    #else:
 
-        hashtag = request.get_json()["selectedHashtag"]
-        print (hashtag)
+    hashtag = request.get_json()["selectedHashtag"]
+    print (hashtag)
 
-        # Compute the number of tweets for the hashtag
-        lista_tweet = class_of_tweets[topic_nome[hashtag]]
-        num_tweet = len(set(lista_tweet))
+    # Compute the number of tweets for the hashtag
+    lista_tweet = class_of_tweets[topic_nome[hashtag]]
+    num_tweet = len(set(lista_tweet))
 
-        # Get the sentiment of tweets
-        list_vector_pie = sentiment_tweet(lista_tweet, dict_id_sentiment)
+    # Get the sentiment of tweets
+    list_vector_pie = sentiment_tweet(lista_tweet, dict_id_sentiment)
 
-        # Top users
-        #list_user_to_plot = top_users(data, lista_tweet)
-        lista_diz_hash = []
-        for i, j in enumerate(dict_topic_hash[topic_nome[hashtag]][:10]):
-            lista_diz_hash += [{'x': i +1, 'y': j[1], 'label': '#' + j[0]}]
+    # Top users
+    #list_user_to_plot = top_users(data, lista_tweet)
+    lista_diz_hash = []
+    for i, j in enumerate(dict_topic_hash[topic_nome[hashtag]][:10]):
+        lista_diz_hash += [{'x': i +1, 'y': j[1], 'label': '#' + j[0]}]
 
-        print (lista_diz_hash)
+    print (lista_diz_hash)
 
-        # Stream tweet
-        sent_sub_tweet = {i: dict_id_sentiment[i] for i in lista_tweet}
-        lista_tweet_pos = [i for i,j in sent_sub_tweet.items() if j=='positive']
-        lista_tweet_neg = [i for i,j in sent_sub_tweet.items() if j=='negative']
-        #lista_tweet_neu = [i for i,j in sent_sub_tweet.items() if j=='neutral']
+    # Stream tweet
+    sent_sub_tweet = {i: dict_id_sentiment[i] for i in lista_tweet}
+    lista_tweet_pos = [i for i,j in sent_sub_tweet.items() if j=='positive']
+    lista_tweet_neg = [i for i,j in sent_sub_tweet.items() if j=='negative']
+    #lista_tweet_neu = [i for i,j in sent_sub_tweet.items() if j=='neutral']
 
 
-        # Utenti unici
-        list_unici_utenti = unique_users(data, lista_tweet)
-        print (retweet_based_on_topic(topic_nome[hashtag], class_of_tweets, data))
+    # Utenti unici
+    list_unici_utenti = unique_users(data, lista_tweet)
+    print (retweet_based_on_topic(topic_nome[hashtag], class_of_tweets, data))
 
-        task = {
-            'numTweet': num_tweet,
-            'NumRetweet': retweet_based_on_topic(topic_nome[hashtag], class_of_tweets, data),
-            'Sentiment':list_vector_pie,
-            'Unique': list_unici_utenti,
-            'StreamPos': stream_tweet(data,lista_tweet_pos),
-            'StreamNeg': stream_tweet(data,lista_tweet_neg),
-            #'StreamNeu': stream_tweet(data,lista_tweet_neu),
-            'dataSet': lista_diz_hash}
-        return jsonify(task)
+    task = {
+        'numTweet': num_tweet,
+        'NumRetweet': retweet_based_on_topic(topic_nome[hashtag], class_of_tweets, data),
+        'Sentiment':list_vector_pie,
+        'Unique': list_unici_utenti,
+        'StreamPos': stream_tweet(data,lista_tweet_pos),
+        'StreamNeg': stream_tweet(data,lista_tweet_neg),
+        #'StreamNeu': stream_tweet(data,lista_tweet_neu),
+        'dataSet': lista_diz_hash}
+    return jsonify(task)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
