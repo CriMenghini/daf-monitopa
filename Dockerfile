@@ -1,13 +1,17 @@
 FROM python:3.6.4
 
-COPY . /app
-WORKDIR /app
+COPY . /
 
 RUN pip install -r requirements.txt
+RUN git clone https://github.com/CriMenghini/daf-monitopa.git
+RUN cd daf-monitopa/ && git checkout production
 
+WORKDIR /daf-monitopa
 
-ADD server.py /
+#RUN cd daf-monitopa/ && python server.py
 
 CMD [ "python", "./server.py" ]
+
+
 
 
