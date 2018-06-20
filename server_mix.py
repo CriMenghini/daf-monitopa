@@ -1,5 +1,9 @@
-# server.py
-import flask
+import json
+
+from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
+
+from src.classes import Tweet, TweetCollection, Hashtag, HashtagCollection
 from flask import Flask, render_template, request, jsonify
 import json
 from src.utils import *
@@ -21,30 +25,32 @@ from keras.models import model_from_json
 from keras.preprocessing import sequence
 import numpy as np
 
-
-from src.classes import Tweet, TweetCollection
-
 app = Flask(__name__, static_folder='web-ui/build', template_folder='web-ui/build')
 CORS(app)
 
-
-########################## Hashtag #######################
 data = json.load(open('data/raw/outputfile.json'))
-with open('data/raw/aa.pkl', 'rb') as f:
-    id_sentiment = pickle.load(f)
 
-# Get info about tweets (@TODO salva questi risultati in file, non calcolarli ad ogni request)
-dictionary_tweet = tweet_info(data)
-list_hashtags, non_set, hashtags_dict, count_hashtags = get_list_significant_hashtag(dictionary_tweet, threshold=5)
-lista_tweet_per_hash = tweets_hashtag(hashtags_dict)
+# Minimal computations for tweets handling
+list_tweets_object = [Tweet(data[i]) for i in range(len(data))]
+collection_tweets = TweetCollection(list_tweets_object)
+list_total_hashtag = collection_tweets.get_list_hashtags()[1]
+
+# Retweet occurrences are not included
+count_hashtags = collection_tweets.get_clean_hashtag_occurrences(list_total_hashtag)
+list_hashtags = list(count_hashtags.keys())
+hashtags_dict = {tweet.get_id_tweet(): tweet.get_hashtag()
+                for tweet in list_tweets_object
+                }
+hash_collection = HashtagCollection(hashtags_dict)
+lista_tweet_per_hash = hash_collection.get_list_tweet()
+dict_hashtag = lista_tweet_per_hash
+dict_list_hashtag, counter_hash =hash_collection.get_co_occurent_list_tweet()
+list_tweet = list(hashtags_dict.keys())
 
 
 
 
-hashtags_dict, dict_hashtag, dict_list_hashtag = tweet_hashtags(hashtags_dict, list_hashtags)
-list_tweet = list(set([k for i, j in dict_hashtag.items() for k in j]))
 
-counter_hash = co_occurrences_tweet(hashtags_dict)
 
 
 

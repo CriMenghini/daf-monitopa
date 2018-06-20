@@ -1,6 +1,7 @@
-import operator
-import numpy as np
+import string
 from collections import defaultdict
+
+
 
 def get_user_attr(id_, dictionary_tweet, tweet, attr, user = True):
     """the function return the attr of the tweet and put it in the dictionary related to the tweet
@@ -15,6 +16,18 @@ def get_user_attr(id_, dictionary_tweet, tweet, attr, user = True):
         
     return dictionary_tweet
 
+def normalize(x):
+    """This function normalizes the review's text. In particular,
+    1. remove the punctuation
+    2. lower case"""
+
+    # Dictionary of punctuation
+    punct_table = {ord(char): ' ' for char in string.punctuation}
+
+    # Remove punctuation
+    s = x.translate(punct_table)
+    s = ' '.join(w.lower() for w in s.split() if len(w) > 1)
+    return s
 
 
 def FindHashHags(tweet):
