@@ -62,60 +62,71 @@ var VisualisationGrid = createClass({
                           <Col md="4" className="col-1">
                                 <div className="NumTweet">
                                     Numero di Tweet
-                                    <NumTweet { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick}/>
-
 
                                     <div>
-                                    <Button color="secondary" onClick={this.toggle1} style={{ marginTop:'0px',marginBottom: '1rem' }}>Toggle</Button>
+                                    <a className="text-red" href='#' onClick={this.toggle1}><i className="fas fa-book mx-2"></i><i class="fas fa-sort-down my-2"></i></a>
+
                                     <Collapse isOpen={this.state.collapse1}>
                                       <Card>
-                                        <CardBody style={{position: 'absolute', zIndex:10, backgroundColor:'grey', color:'white'}}>
+                                        <CardBody style={{position: 'absolute', zIndex:10,
+                                                          backgroundColor:'#b61924', color:'white',
+                                                          fontSize: '15px'}}>
                                             Questo grafico definisce il numero di Tweet scritti, escludendo i retweet, che contengono
                                             l'hashtag selezionato.
                                         </CardBody>
                                       </Card>
                                     </Collapse>
                                     </div>
+
+                                    <NumTweet { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick}/>
 
                                 </div>
 
                           </Col>
                           <Col md="4" className="col-2">
-                                <div className="NumRetweet">
-                                     Top 10 Retweet
-                                     <NumRetweet dati={Retweet} { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick}/>
 
+                                <div className="NumRetweet">
+                                    Top 10 Retweet
                                     <div>
-                                    <Button color="secondary" onClick={this.toggle2} style={{ marginTop:'0px', marginBottom: '1rem'}}>Toggle</Button>
+                                    <a className="text-red" href='#' onClick={this.toggle2}><i className="fas fa-book mx-2"></i><i class="fas fa-sort-down my-2"></i></a>
+
                                     <Collapse isOpen={this.state.collapse2}>
                                       <Card>
-                                        <CardBody style={{position: 'absolute', zIndex:10, backgroundColor:'grey', color:'white'}}>
-                                            Questo grafico definisce il numero di Tweet scritti, escludendo i retweet, che contengono
-                                            l'hashtag selezionato.
+                                        <CardBody style={{position: 'absolute', zIndex:10,
+                                                          backgroundColor:'#b61924', color:'white',
+                                                          fontSize: '15px'}}>
+                                            Il grafico rappresenta il numero di retweet ottenuti dai tweet più popolari che contengono l'hashtag.
                                         </CardBody>
                                       </Card>
                                     </Collapse>
                                     </div>
+
+                                    <NumRetweet dati={Retweet} { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick}/>
 
                                 </div>
                           </Col>
                           <Col md="4" className="col-3">
                                 <div className="TweetSentiment">
                                      Tweet Sentiment
-                                     <br/>
-                                     <Sentiment { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick} />
 
-                                    <div>
-                                    <Button color="secondary" onClick={this.toggle3} style={{ marginBottom: '1rem' }}>Toggle</Button>
-                                    <Collapse isOpen={this.state.collapse3}>
+                                     <div>
+                                     <a className="text-red" href='#' onClick={this.toggle3}><i className="fas fa-book mx-2"></i><i class="fas fa-sort-down"></i></a>
+
+                                     <Collapse isOpen={this.state.collapse3}>
                                       <Card>
-                                        <CardBody style={{position: 'absolute', zIndex:10, backgroundColor:'grey', color:'white'}}>
-                                            Questo grafico definisce il numero di Tweet scritti, escludendo i retweet, che contengono
-                                            l'hashtag selezionato.
+                                        <CardBody style={{position: 'absolute', zIndex:10,
+                                                          backgroundColor:'#b61924', color:'white',
+                                                          fontSize: '15px'}}>
+                                            Questo grafico riporta la percentuale di tweet di sentimento negativo (rosso) e
+                                            positivo (verde).
                                         </CardBody>
                                       </Card>
-                                    </Collapse>
+                                     </Collapse>
                                     </div>
+
+                                     <Sentiment { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick} />
+
+
 
 
                                 </div>
@@ -126,55 +137,63 @@ var VisualisationGrid = createClass({
                           <Col md="4" className="col-1">
                                 <div className="UserUnique">
                                     Utenti unici nel tempo
-                                     <UtentiUnici { ...this.props } { ...this.state} />
 
                                     <div>
-                                    <Button color="secondary" onClick={this.toggle4} style={{ marginBottom: '1rem' }}>Toggle</Button>
+                                    <a className="text-red" href='#' onClick={this.toggle4}><i className="fas fa-book mx-2"></i><i class="fas fa-sort-down my-2"></i></a>
                                     <Collapse isOpen={this.state.collapse4}>
                                       <Card>
-                                        <CardBody style={{position: 'absolute', zIndex:10, backgroundColor:'grey', color:'white'}}>
-                                            Questo grafico definisce il numero di Tweet scritti, escludendo i retweet, che contengono
-                                            l'hashtag selezionato.
+                                        <CardBody style={{position: 'absolute', zIndex:10,
+                                                          backgroundColor:'#b61924', color:'white',
+                                                          fontSize: '15px'}}>
+                                            In questa figura è rappresentata la somma cumulata degli utenti unici che
+                                            ha parlato dell'hashtag.
                                         </CardBody>
                                       </Card>
                                     </Collapse>
                                     </div>
+
+                                    <UtentiUnici { ...this.props } { ...this.state} />
                                 </div>
                           </Col>
                           <Col md="4" className="col-2">
                                 <div className="TopUsers">
                                      Top 10 co-hashtag
-                                    <TopUsers { ...this.props } { ...this.state} />
 
                                     <div>
-                                    <Button color="secondary" onClick={this.toggle5} style={{ marginBottom: '1rem' }}>Toggle</Button>
+                                    <a className="text-red" href='#' onClick={this.toggle5}><i className="fas fa-book mx-2"></i><i class="fas fa-sort-down my-2"></i></a>
                                     <Collapse isOpen={this.state.collapse5}>
                                       <Card>
-                                        <CardBody style={{position: 'absolute', zIndex:10, backgroundColor:'grey', color:'white'}}>
-                                            Questo grafico definisce il numero di Tweet scritti, escludendo i retweet, che contengono
-                                            l'hashtag selezionato.
+                                        <CardBody style={{position: 'absolute', zIndex:10,
+                                                          backgroundColor:'#b61924', color:'white',
+                                                          fontSize: '15px'}}>
+                                            Il grafico al barre indica i 10 hashtag con cui l'hashtag di interesse compare
+                                            più frequentemente.
                                         </CardBody>
                                       </Card>
                                     </Collapse>
                                     </div>
+                                    <TopUsers { ...this.props } { ...this.state} />
                                 </div>
                           </Col>
                           <Col md="4" className="col-3">
                                 <div className="StreamTweet">
                                      Tweet stream
-                                     <TimeSeries { ...this.props } { ...this.state} />
 
                                      <div>
-                                    <Button color="secondary" onClick={this.toggle6} style={{ marginBottom: '1rem' }}>Toggle</Button>
+                                     <a className="text-red" href='#' onClick={this.toggle6}><i className="fas fa-book mx-2"></i><i class="fas fa-sort-down my-2"></i></a>
+
                                     <Collapse isOpen={this.state.collapse6}>
                                       <Card>
-                                        <CardBody style={{position: 'absolute', zIndex:10, backgroundColor:'grey', color:'white'}}>
-                                            Questo grafico definisce il numero di Tweet scritti, escludendo i retweet, che contengono
-                                            l'hashtag selezionato.
+                                        <CardBody style={{position: 'absolute', zIndex:10,
+                                                          backgroundColor:'#b61924', color:'white',
+                                                          fontSize: '15px'}}>
+                                            Lo stream di tweet positive e negativi relativi all'hashtag.
                                         </CardBody>
                                       </Card>
                                     </Collapse>
                                     </div>
+
+                                    <TimeSeries { ...this.props } { ...this.state} />
                                 </div>
 
 

@@ -94,20 +94,17 @@ var Topic =  createClass({
 
                                       style={{
                                         position: 'absolute',
-                                        zIndex: 0
-
+                                        zIndex: 0,
 
                                       }}
 
 
 
                             />
-
-                              <form action="/" className='title-name prova-canvas-form'>
-                                <button type="submit" className="btn btn-outline-secondary" style={{marginTop:'10px'}} onClick={this.props.scegliAnalisi}>Home Page</button>
-                            </form>
-
-
+                              <div className="row mx-3 my-4">
+                                  <a href='/'><i className="fa fa-home fa-lg text-white icona-home"/></a>
+                                  <h1 className="title-hashtag ml-4">#{this.state.sentence}</h1>
+                            </div>
                         </div>
 
 
@@ -119,9 +116,6 @@ var Topic =  createClass({
                        </div>
 
                        <div className='Visualisation'>
-                                <ChooseTopic { ...this.props } { ...this.state} funzioneSubmit={this.handleSubmit} funzioneClick={this.handleClick}/>
-
-                                <br/>
 
                                 <VisualisationGrid { ...this.props } { ...this.state} funzioneSubmit={this.handleSubmit} funzioneClick={this.handleClick}/>
                        </div>

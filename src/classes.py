@@ -18,6 +18,19 @@ class Tweet(object):
 		"""
         self.tweet_object = tweet_object
 
+
+
+    @property
+    def text(self):
+        """Get text of tweet without preprocessing.
+
+        :return: tweet's text
+        """
+        try:
+            return self.tweet_object['retweeted_status']['text']
+        except KeyError:
+            return self.tweet_object['text']
+
     def get_text(self):
         """Get text of tweet without preprocessing.
 

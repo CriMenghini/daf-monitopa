@@ -4,6 +4,7 @@ import App from './App.css';
 import BoardHashtag from './Board';
 import Hashtag  from './Hashtag';
 import name_topic from './data/name_topic.js';
+import Particles from 'react-particles-js';
 
 
 var SearchBarTopic = createClass({
@@ -27,11 +28,24 @@ var SearchBarTopic = createClass({
 
     render: function (){
         return (<div className='SearchContainer'>
-                    <h3 className='search-title'>Scegli il topic!</h3>
+                    <h3 className='search-title my-3'>Scegli il topic!</h3>
 
                     <form>
-                        <input className='input-mine' type="text" placeholder={this.state.defaultText} onChange={this.filterButtons} name='hashtag' />
+                        <input className='input-mine my-3' type="text" placeholder={this.state.defaultText} onChange={this.filterButtons} name='hashtag' />
                     </form>
+
+                    <Particles
+                        params={{particles: {number: {value: 30},
+                                             color: {value: '#cf2c2c'},
+                                             },
+
+                                             }}
+                                      style={{
+                                        position: 'absolute',
+                                        zIndex: 0,
+                                        height: '100%',
+                                        width: '100%'
+                                      }}/>
 
                     <BoardHashtag inheritState={this.state.items.slice(0,60)}  { ...this.props } { ...this.state} funzioneSubmit={this.props.funzioneSubmit} funzioneClick={this.props.funzioneClick}/>
                 </div>)

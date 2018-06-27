@@ -1,4 +1,14 @@
 /*Home page*/
+/*body {
+    font-family: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #151b1e;
+    text-align: left;
+    background-color: #e4e5e6;
+}*/
+
 .Home {
     padding: 6vh;
     height: 100%;
@@ -8,6 +18,7 @@
     z-index:1;
 }
 .titolo-home{color: white;
+font-family: Titillium Web, HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
             margin-top: 0vw;
             margin-bottom: 5vw;
             z-index:10;
@@ -29,6 +40,39 @@
 	font-family: 'Open Sans', sans-serif;
     z-index:1;
     text-align:center;
+}
+
+.href {text-decoration: none;
+}
+
+
+.bottone{
+        padding: 12px 28px;
+        border-radius: 4px;
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+    }
+
+.bottone:hover{background-color: rgba(0, 0, 0, 0.3);
+
+}
+
+a.bottone:hover{
+    text-decoration: none;
+    color: white!important;
+}
+
+
+my-toggle {
+        padding: 15px 20px;
+        border-radius: 4px;
+        background-color: transparent;
+        color: #b61924;
+        border: 1px solid #b61924;
+}
+
+my-toggle:hover {
 }
 
 .canvas-due{
@@ -94,7 +138,7 @@
 }
 
 
-.title-over-plot {color: #262626;
+.title-over-plot {color: #FAF0E6;
         margin-top: 0vh;
         position:relative;
         text-align: center;
@@ -140,6 +184,13 @@
 
         }
 
+.title-hashtag {
+        margin-top:0px;
+        z-index: -1;
+        vertical-align: middle;
+        text-align: center;
+        color: white;
+}
 
 
 .prova-canvas-title{
@@ -172,6 +223,13 @@
     text-align:center;
 }
 
+.icona-home {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 10px;
+    z-index:1;
+    font-size:30px;
+}
 
 
 .title-name {
@@ -202,13 +260,13 @@
 /* Attribute for the sidebar*/
 .Sidebar {height: 100%;
     margin-top: 100px;
-    margin-left:5px;
+    margin-left:0px;
     width: 235px;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #fff;
+    background-color: #b61924;
     overflow-y: scroll;
     box-shadow: 1px 1px 1px 0px #888888;}
 
@@ -218,6 +276,7 @@
                   margin-bottom:120px;
                   width: 230px;
                   margin-right: 0px;
+                  z-index:0;
                   }
 
 .Hashtag{display: inline-block;
@@ -226,47 +285,39 @@
             align: center;
             }
 
-.tag{background-color: #b61924;
-            display: inline-block;
-            margin-left: 0px;
-            color:white;
-            font-size: 12px;
-            border-radius: 4px;
-            box-shadow: 1px 1px 1px 0px #888888;
-            font-family: Libre Baskerville, serif;
-            }
 
-.tag:hover{background-color: #23efff;
+
+
+
+
+.tag{
+    padding: 5px 10px;
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 1px 1px 1px 0px #888888
+    }
+
+.tag:hover{background-color: rgba(0, 0, 0, 0.3);
           }
 
 .SearchContainer{align: center;
                 font-size: 13px;
+                background-color: #b61924;
                 }
 
-.search-title {color: grey;
+.search-title {color: white;
                font-size: 20px;
-               font-family: Libre Baskerville, serif;
                margin: 7px 30px 3px 30px;
 }
 
-input-mine {line-height: 2;
-        font-size: 13px;
-        height: auto;
-        margin-left: 0px;
-        padding-left: 20px;
-        align: center;
+input-mine {
+        font-size: 20px;
+
   }
 
 
-/* DEfine attributes for the Topic choice sidebar*/
-/*.Sidebar-topic {margin-left: 0px;
-                  margin-top:100px;
-                  width: 300px;
-                  margin-right: 0px;
-                  font-size: 13px;
-                  }*/
-.SearchContainer{align: center;
-                font-size: 13px;}
 
 .topic-btn{
     background-color: #4CAF50;
@@ -331,34 +382,28 @@ input-mine {line-height: 2;
 
 /* Titolo cards*/
 .NumTweet {font-size: 1.5vw;
-          margin-top: 20px;
-          font-family: Libre Baskerville, serif;
+          margin-top: 55px;
           margin-bottom: 0px;
           color:grey;}
 
 .NumRetweet {font-size: 1.5vw;
-             margin-top: 20px;
-             font-family: Libre Baskerville, serif;
+             margin-top: 55px;
              color:grey;}
 
 .TweetSentiment {font-size: 1.5vw;
-             margin-top: 20px;
-             font-family: Libre Baskerville, serif;
+             margin-top: 55px;
              color:grey;}
 
 .UserUnique {font-size: 1.5vw;
              margin-top: 20px;
-             font-family: Libre Baskerville, serif;
              color:grey;}
 
 .TopUsers {font-size: 1.5vw;
              margin-top: 20px;
-             font-family: Libre Baskerville, serif;
              color:grey;}
 
 .StreamTweet {font-size: 1.5vw;
              margin-top: 20px;
-             font-family: Libre Baskerville, serif;
              color:grey;}
 
 /* Progetto*/
@@ -373,4 +418,28 @@ input-mine {line-height: 2;
            font-size: 1vw;
 }
 
+.book {color:#b61924;
+       }
 
+.book:hover {color:#696969;
+       }
+
+       .text-red {
+  color: #b61924 !important; }
+
+a.text-red:hover, a.text-red:focus {
+  color: #696969 !important; }
+
+@import url('https://fonts.googleapis.com/css family=Titillium+Web:300,400,400i,600,600i,700');
+#f{
+  font-family: 'Titillium Web', sans-serif;
+}
+
+p {color: white;}
+
+.paragraphs {
+    margin-top: 30px;
+    margin-right: 150px;
+    margin-left: 150px;
+
+}
