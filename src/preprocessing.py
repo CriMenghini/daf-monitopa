@@ -39,12 +39,31 @@ def substitute_label(x):
     return ' '.join([vocabolario[i] if i in l else i for i in x])
 
 
+def substitute_label_(x, voc_lexicon):
+    """Substitute words with tag pos, neg, neu.
+    ------------------------------------------------------------
+
+    This operation requires some times especially when the
+    length of the text increases.
+    """
+
+    l = set(lista_parole_uniche).intersection(set(x))
+    return ' '.join([voc_lexicon[i] if i in l else i for i in x])
+
+
 def replace_word_index_tripadvisor(x):
     """Given a list of words it returns the list of indeces"""
     
     return [vocabolario_index_tripadvisor[w] for w in x if w in vocabolario_index_tripadvisor.keys()]
 
+
 def replace_word_index_twitter(x):
+    """Given a list of words it returns the list of indeces"""
+
+    return [vocabolario_index_twitter[w] for w in x if
+            w in vocabolario_index_twitter.keys()]
+
+def replace_word_index_twitter_(x, vocabolario_index_twitter):
     """Given a list of words it returns the list of indeces"""
     
     return [vocabolario_index_twitter[w] for w in x if w in vocabolario_index_twitter.keys()]

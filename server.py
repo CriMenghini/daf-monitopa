@@ -133,12 +133,6 @@ def landing():
 
 @app.route("/hashtag_api", methods=['POST'])
 def hashtag_api():
-    #if request.method == 'GET':
-    #    print ('SONO ANDATO IN GET')
-    #    return render_template('index.html')
-
-
-    #else:
 
     hashtag = request.get_json()["selectedHashtag"]
     print (hashtag)
@@ -167,6 +161,7 @@ def hashtag_api():
 
     # Utenti unici
     list_unici_utenti = unique_users(data, lista_tweet)
+    print (list_unici_utenti)
 
 
     task = {
@@ -183,12 +178,6 @@ def hashtag_api():
 
 @app.route("/topic_api", methods=['POST'])
 def topic_api():
-    #if request.method == 'GET':
-    #    print ('SONO ANDATO IN GET')
-    #    return render_template('index.html')
-
-
-    #else:
 
     hashtag = request.get_json()["selectedHashtag"]
     print (hashtag)
