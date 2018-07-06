@@ -1,9 +1,5 @@
-import json
-
-from flask import Flask, render_template, request, jsonify
-from flask_cors import CORS
-
-from src.classes import Tweet, TweetCollection, Hashtag, HashtagCollection
+# server.py
+import flask
 from flask import Flask, render_template, request, jsonify
 import json
 from src.utils import *
@@ -25,32 +21,30 @@ from keras.models import model_from_json
 from keras.preprocessing import sequence
 import numpy as np
 
+
+from src.classes import Tweet, TweetCollection
+
 app = Flask(__name__, static_folder='web-ui/build', template_folder='web-ui/build')
 CORS(app)
 
+
+########################## Hashtag #######################
 data = json.load(open('data/raw/outputfile.json'))
+with open('data/raw/aa.pkl', 'rb') as f:
+    id_sentiment = pickle.load(f)
 
-# Minimal computations for tweets handling
-list_tweets_object = [Tweet(data[i]) for i in range(len(data))]
-collection_tweets = TweetCollection(list_tweets_object)
-list_total_hashtag = collection_tweets.get_list_hashtags()[1]
-
-# Retweet occurrences are not included
-count_hashtags = collection_tweets.get_clean_hashtag_occurrences(list_total_hashtag)
-list_hashtags = list(count_hashtags.keys())
-hashtags_dict = {tweet.get_id_tweet(): tweet.get_hashtag()
-                for tweet in list_tweets_object
-                }
-hash_collection = HashtagCollection(hashtags_dict)
-lista_tweet_per_hash = hash_collection.get_list_tweet()
-dict_hashtag = lista_tweet_per_hash
-dict_list_hashtag, counter_hash =hash_collection.get_co_occurent_list_tweet()
-list_tweet = list(hashtags_dict.keys())
+# Get info about tweets (@TODO salva questi risultati in file, non calcolarli ad ogni request)
+dictionary_tweet = tweet_info(data)
+list_hashtags, non_set, hashtags_dict, count_hashtags = get_list_significant_hashtag(dictionary_tweet, threshold=5)
+lista_tweet_per_hash = tweets_hashtag(hashtags_dict)
 
 
 
 
+hashtags_dict, dict_hashtag, dict_list_hashtag = tweet_hashtags(hashtags_dict, list_hashtags)
+list_tweet = list(set([k for i, j in dict_hashtag.items() for k in j]))
 
+counter_hash = co_occurrences_tweet(hashtags_dict)
 
 
 
@@ -139,15 +133,9 @@ def landing():
 
 @app.route("/hashtag_api", methods=['POST'])
 def hashtag_api():
-    #if request.method == 'GET':
-    #    print ('SONO ANDATO IN GET')
-    #    return render_template('index.html')
-
-
-    #else:
 
     hashtag = request.get_json()["selectedHashtag"]
-    print (hashtag)
+    #print (hashtag)
 
     # Compute the number of tweets for the hashtag
     lista_tweet = lista_tweet_per_hash[hashtag]
@@ -155,14 +143,14 @@ def hashtag_api():
 
     # Get the sentiment of tweets
     list_vector_pie = sentiment_tweet(lista_tweet, dict_id_sentiment)#id_sentiment)
-    print (list_vector_pie)
+    #print (list_vector_pie)
     # Top users
     #list_user_to_plot = top_users(data, lista_tweet)
     lista_diz_hash = []
     for i, j in enumerate(counter_hash[hashtag][:10]):
         lista_diz_hash += [{'x': i + 1, 'y': j[1], 'label': '#' + j[0]}]
 
-    print (lista_diz_hash)
+    #print (lista_diz_hash)
 
     # Stream tweet
     sent_sub_tweet = {i: dict_id_sentiment[i] for i in lista_tweet}
@@ -174,6 +162,7 @@ def hashtag_api():
     # Utenti unici
     list_unici_utenti = unique_users(data, lista_tweet)
 
+    print (list_unici_utenti)
 
     task = {
         'numTweet': num_tweet,
@@ -189,12 +178,6 @@ def hashtag_api():
 
 @app.route("/topic_api", methods=['POST'])
 def topic_api():
-    #if request.method == 'GET':
-    #    print ('SONO ANDATO IN GET')
-    #    return render_template('index.html')
-
-
-    #else:
 
     hashtag = request.get_json()["selectedHashtag"]
     print (hashtag)
