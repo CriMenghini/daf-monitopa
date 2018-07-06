@@ -135,7 +135,7 @@ def landing():
 def hashtag_api():
 
     hashtag = request.get_json()["selectedHashtag"]
-    print (hashtag)
+    #print (hashtag)
 
     # Compute the number of tweets for the hashtag
     lista_tweet = lista_tweet_per_hash[hashtag]
@@ -143,14 +143,14 @@ def hashtag_api():
 
     # Get the sentiment of tweets
     list_vector_pie = sentiment_tweet(lista_tweet, dict_id_sentiment)#id_sentiment)
-    print (list_vector_pie)
+    #print (list_vector_pie)
     # Top users
     #list_user_to_plot = top_users(data, lista_tweet)
     lista_diz_hash = []
     for i, j in enumerate(counter_hash[hashtag][:10]):
         lista_diz_hash += [{'x': i + 1, 'y': j[1], 'label': '#' + j[0]}]
 
-    print (lista_diz_hash)
+    #print (lista_diz_hash)
 
     # Stream tweet
     sent_sub_tweet = {i: dict_id_sentiment[i] for i in lista_tweet}
@@ -161,8 +161,8 @@ def hashtag_api():
 
     # Utenti unici
     list_unici_utenti = unique_users(data, lista_tweet)
-    print (list_unici_utenti)
 
+    print (list_unici_utenti)
 
     task = {
         'numTweet': num_tweet,
