@@ -351,7 +351,8 @@ class Hashtag(object):
             id_user_retweet = tweet_attr['changable_attributes'][
                 'list_user_retweet']
 
-            list_users += id_user_tweet + id_user_retweet
+            list_users += [(id_user_tweet, tweet_attr['data_tweet'])]\
+						  + id_user_retweet
 
         return list_users
 

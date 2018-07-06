@@ -45,7 +45,8 @@ def sentiment_percentage(lista_tweet):
 	sentiment_tweet = []
 	for tweet in lista_tweet:
 		tweet_attr = tweet.__dict__
-		sentiment_tweet += [tweet_attr['sentiment']]
+		sentiment_tweet += [tweet_attr['sentiment']]\
+						   * (len(tweet_attr['changable_attributes']['list_user_retweet'])+1)
 
 	count_sentiment = collections.Counter(sentiment_tweet)
 	total = len(sentiment_tweet)
